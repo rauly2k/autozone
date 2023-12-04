@@ -1,0 +1,33 @@
+{#
+// inputs:
+// - categories: array - array of category objects
+#}
+
+{% set categories = inputs.categories %}
+
+<div class="card widget widget-categories">
+    <div class="widget__header">
+        <h4>Categories</h4>
+    </div>
+    <ul class="widget-categories__list widget-categories__list--root"  data-collapse data-collapse-opened-class="widget-categories__item--open">
+        {% for category in categories %}
+            <li class="widget-categories__item" data-collapse-item>
+                <a href="" class="widget-categories__link">
+                    {{ category.name }}
+                </a>
+                {% if category.subcategories %}
+                    <button class="widget-categories__expander" type="button" data-collapse-trigger></button>
+                    <div class="widget-categories__container" data-collapse-content>
+                        <ul class="widget-categories__list widget-categories__list--child">
+                            {% for subcategory in category.subcategories %}
+                                <li class="widget-categories__item">
+                                    <a href="" class="widget-categories__link">{{ subcategory.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>

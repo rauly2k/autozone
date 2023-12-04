@@ -1,0 +1,12 @@
+{#
+// inputs:
+// - layout:  string - one of [after-header, before-footer, spaceship-ledge-height, divider-xs, divider-sm, divider-nl, divider-lg]
+// - classes: string - CSS classes to be applied to the root element (default: '')
+#}
+
+{% set layout = inputs.layout %}
+{% set classes = inputs.classes|default('') %}
+
+{% set root_classes = classnames('block-space', 'block-space--layout--'~layout, classes) %}
+
+<div class="{{ root_classes }}"></div>

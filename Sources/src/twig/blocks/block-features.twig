@@ -1,0 +1,50 @@
+{#
+// inputs:
+// - layout: string - one of [top-strip, bottom-strip] (default: top-strip)
+#}
+
+{% set layout = inputs.layout|default('top-strip') %}
+{% set root_classes = classnames('block-features block', 'block-features--layout--'~layout) %}
+
+<div class="{{ root_classes }}">
+    <div class="container">
+        <ul class="block-features__list">
+            <li class="block-features__item">
+                <div class="block-features__item-icon">
+                    {{ svg('fi-free-delivery-48.svg') }}
+                </div>
+                <div class="block-features__item-info">
+                    <div class="block-features__item-title">Free Shipping</div>
+                    <div class="block-features__item-subtitle">For orders from $50</div>
+                </div>
+            </li>
+            <li class="block-features__item">
+                <div class="block-features__item-icon">
+                    {{ svg('fi-24-hours-48.svg') }}
+                </div>
+                <div class="block-features__item-info">
+                    <div class="block-features__item-title">Support 24/7</div>
+                    <div class="block-features__item-subtitle">Call us anytime</div>
+                </div>
+            </li>
+            <li class="block-features__item">
+                <div class="block-features__item-icon">
+                    {{ svg('fi-payment-security-48.svg') }}
+                </div>
+                <div class="block-features__item-info">
+                    <div class="block-features__item-title">100% Safety</div>
+                    <div class="block-features__item-subtitle">Only secure payments</div>
+                </div>
+            </li>
+            <li class="block-features__item">
+                <div class="block-features__item-icon">
+                    {{ svg('fi-tag-48.svg') }}
+                </div>
+                <div class="block-features__item-info">
+                    <div class="block-features__item-title">Hot Offers</div>
+                    <div class="block-features__item-subtitle">Discounts up to 90%</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+{% set global_header_layout = global_header_layout|default('classic') %}
+{% set global_header_style = 'style.header-classic-variant-one.css' %}
+{% set global_page_title = 'Home Two — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-xs'}} %}
+    {% include '/blocks/block-slideshow.twig' %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-brands.twig' %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-categories.twig' %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-products-carousel.twig' with {inputs: {
+        title: 'Featured Products',
+        layout: 'grid-5',
+        rows: 1,
+        groups: [
+            {title: 'All', active: true},
+            {title: 'Power Tools', active: false},
+            {title: 'Hand Tools', active: false},
+            {title: 'Plumbing', active: false},
+        ],
+    }} %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-banners.twig' %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-sale.twig' %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-posts-carousel.twig' with {inputs: {
+        title: 'Latest News',
+        layout: 'list',
+        links: [
+            {title: 'Special Offers', url: ''},
+            {title: 'New Arrivals', url: ''},
+            {title: 'Reviews', url: ''},
+        ],
+    }} %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl', classes: 'd-xl-block d-none'}} %}
+    {% include '/blocks/block-products-columns.twig' %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-features.twig' with {inputs: {layout: 'bottom-strip'}} %}
+{% endblock %}

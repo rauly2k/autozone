@@ -1,0 +1,18 @@
+{#
+// inputs:
+// - type:    string - one of [center, bottom] (default: 'center')
+// - classes: string - classes to be applied to the root element (default: '')
+#}
+
+{% set type = inputs.type|default('center') %}
+{% set classes = inputs.classes|default('') %}
+
+{% set root_classes = classnames('decor', classes, 'decor--type--'~type) %}
+
+<div class="{{ root_classes }}">
+    <div class="decor__body">
+        <div class="decor__start"></div>
+        <div class="decor__end"></div>
+        <div class="decor__center"></div>
+    </div>
+</div>

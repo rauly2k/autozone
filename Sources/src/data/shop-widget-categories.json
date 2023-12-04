@@ -1,0 +1,68 @@
+[
+  {"name": "Tools & Garage", "url": ""},
+  {
+    "name": "Headlights & Lighting",
+    "url": "",
+    "subcategories": [
+      {"name": "Headlights", "url": ""},
+      {"name": "Tail Lights", "url": ""},
+      {"name": "Fog Lights", "url": ""},
+      {"name": "Turn Signals", "url": ""},
+      {"name": "Switches & Relays", "url": ""},
+      {"name": "Corner Lights", "url": ""}
+    ]
+  },
+  {
+    "name": "Interior Parts",
+    "url": "",
+    "subcategories": [
+      {"name": "Floor Mats", "url": ""},
+      {"name": "Gauges", "url": ""},
+      {"name": "Consoles & Organizers", "url": ""},
+      {"name": "Mobile Electronics", "url": ""},
+      {"name": "Steering Wheels", "url": ""},
+      {"name": "Cargo Accessories", "url": ""}
+    ]
+  },
+  {
+    "name": "Engine & Drivetrain",
+    "url": "",
+    "subcategories": [
+      {"name": "Air Filters", "url": ""},
+      {"name": "Oxygen Sensors", "url": ""},
+      {"name": "Heating", "url": ""},
+      {"name": "Exhaust", "url": ""},
+      {"name": "Cranks & Pistons", "url": ""}
+    ]
+  },
+  {"name": "Repair Manuals", "url": ""},
+  {"name": "Suspension", "url": ""},
+  {
+    "name": "Body Parts",
+    "url": "",
+    "subcategories": [
+      {"name": "Bumpers", "url": ""},
+      {"name": "Hoods", "url": ""},
+      {"name": "Grilles", "url": ""},
+      {"name": "Fog Lights", "url": ""},
+      {"name": "Door Handles", "url": ""},
+      {"name": "Car Covers", "url": ""},
+      {"name": "Tailgates", "url": ""}
+    ]
+  },
+  {"name": "Fuel Systems", "url": ""},
+  {
+    "name": "Brakes & Suspension",
+    "url": "",
+    "subcategories": [
+      {"name": "Brake Discs", "url": ""},
+      {"name": "Wheel Hubs", "url": ""},
+      {"name": "Air Suspension", "url": ""},
+      {"name": "Ball Joints", "url": ""},
+      {"name": "Brake Pad Sets", "url": ""}
+    ]
+  },
+  {"name": "Steering", "url": ""},
+  {"name": "Transmission", "url": ""},
+  {"name": "Air Filters", "url": ""}
+]

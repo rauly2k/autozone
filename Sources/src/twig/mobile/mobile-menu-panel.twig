@@ -1,0 +1,107 @@
+{#
+// inputs:
+// - panel: data object
+#}
+
+{% set panel = inputs.panel %}
+
+{% set root_classes = classnames('mobile-menu__panel', {
+    'mobile-menu__panel--hidden': not panel.root
+}) %}
+
+<div class="{{ root_classes }}">
+    <div class="mobile-menu__panel-header">
+        {% if not panel.root %}
+            <button class="mobile-menu__panel-back" type="button">
+                {{ svg('arrow-rounded-left-7x11.svg') }}
+            </button>
+        {% endif %}
+        <div class="mobile-menu__panel-title">{{ panel.title }}</div>
+    </div>
+    <div class="mobile-menu__panel-body">
+        {% for item in panel.items %}
+            {% if item.type == 'divider' %}
+                <div class="mobile-menu__divider"></div>
+            {% elseif item.type == 'spring' %}
+                <div class="mobile-menu__spring"></div>
+            {% elseif item.type == 'settings' %}
+                <div class="mobile-menu__settings-list">
+                    {% for item in item.items %}
+                        <div class="mobile-menu__setting" data-mobile-menu-item>
+                            <button class="mobile-menu__setting-button" title="{{ item.title }}" data-mobile-menu-trigger>
+                                <span class="{{ classnames('mobile-menu__setting-icon', {'mobile-menu__setting-icon--currency': item.type == 'currency'}) }}">
+                                    {% if item.type == 'currency' %}
+                                        {{ item.value }}
+                                    {% elseif item.type == 'language' %}
+                                        <img src="{{ item.value }}" alt="">
+                                    {% endif %}
+                                </span>
+                                <span class="mobile-menu__setting-title">{{ item.label }}</span>
+                                <span class="mobile-menu__setting-arrow">{{ svg('arrow-rounded-right-6x9.svg') }}</span>
+                            </button>
+                            {% if item.panel %}
+                                <div class="mobile-menu__setting-panel" data-mobile-menu-panel>
+                                    {% include '/mobile/mobile-menu-panel.twig' with {inputs: {
+                                        panel: item.panel,
+                                    }} %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% elseif item.type == 'indicators' %}
+                <div class="mobile-menu__indicators">
+                    {% for item in item.items %}
+                        <a class="mobile-menu__indicator" href="{{ item.url }}">
+                            <span class="mobile-menu__indicator-icon">
+                                {{ svg(item.icon~'.svg') }}
+                                {% if item.counter %}
+                                    <span class="mobile-menu__indicator-counter">{{ item.counter }}</span>
+                                {% endif %}
+                            </span>
+                            <span class="mobile-menu__indicator-title">{{ item.title }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% elseif item.type == 'links' %}
+                <ul class="mobile-menu__links">
+                    {% for item in item.items %}
+                        <li data-mobile-menu-item>
+                            {% set content %}
+                                {% if item.image %}
+                                    <div class="mobile-menu__links-image">
+                                        <img src="{{ item.image }}" alt="">
+                                    </div>
+                                {% endif %}
+                                {{ item.title }}
+                                {% if item.panel %}
+                                    {{ svg('arrow-rounded-right-7x11.svg') }}
+                                {% endif %}
+                            {% endset %}
+                            {% set classes = classnames({'highlight': item.highlight}) %}
+
+                            {% if item.url %}
+                                <a href="{{ item.url }}" class="{{ classes }}"{% if item.external %} target="_blank"{% endif %} data-mobile-menu-trigger>{{ content }}</a>
+                            {% else %}
+                                <button type="button" class="{{ classes }}" data-mobile-menu-trigger>{{ content }}</button>
+                            {% endif %}
+
+                            {% if item.panel %}
+                                <div class="mobile-menu__links-panel" data-mobile-menu-panel>
+                                    {% include '/mobile/mobile-menu-panel.twig' with {inputs: {
+                                        panel: item.panel,
+                                    }} %}
+                                </div>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% elseif item.type == 'contacts' %}
+                <a class="mobile-menu__contacts" href="">
+                    <div class="mobile-menu__contacts-subtitle">{{ item.subtitle }}</div>
+                    <div class="mobile-menu__contacts-title">{{ item.title }}</div>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

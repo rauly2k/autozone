@@ -1,0 +1,132 @@
+{% set global_page_title = 'Shopping Cart — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% set cart = data('shop-cart.json') %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/blocks/block-header.twig' with {inputs: {
+        title: 'Shopping Cart',
+    }} %}
+
+    <div class="block">
+        <div class="container">
+            <div class="cart">
+                <div class="cart__table cart-table">
+                    <table class="cart-table__table">
+                        <thead class="cart-table__head">
+                        <tr class="cart-table__row">
+                            <th class="cart-table__column cart-table__column--image">Image</th>
+                            <th class="cart-table__column cart-table__column--product">Product</th>
+                            <th class="cart-table__column cart-table__column--price">Price</th>
+                            <th class="cart-table__column cart-table__column--quantity">Quantity</th>
+                            <th class="cart-table__column cart-table__column--total">Total</th>
+                            <th class="cart-table__column cart-table__column--remove"></th>
+                        </tr>
+                        </thead>
+                        <tbody class="cart-table__body">
+                        {% for item in cart.items %}
+                            <tr class="cart-table__row">
+                                <td class="cart-table__column cart-table__column--image">
+                                    <div class="image image--type--product">
+                                        <a href="product-full.html" class="image__body">
+                                            <img class="image__tag" src="{{ image(item.image, {size: 160}) }}" alt="">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td class="cart-table__column cart-table__column--product">
+                                    <a href="" class="cart-table__product-name">{{ item.name }}</a>
+                                    {% if item.options %}
+                                        <ul class="cart-table__options">
+                                            {% for option in item.options %}
+                                                <li>{{ option.name }}: {{ option.value }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </td>
+                                <td class="cart-table__column cart-table__column--price" data-title="Price">{{ item.price|currency }}</td>
+                                <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
+                                    <div class="cart-table__quantity input-number">
+                                        <input class="form-control input-number__input" type="number" min="1" value="{{ item.quantity }}">
+                                        <div class="input-number__add"></div>
+                                        <div class="input-number__sub"></div>
+                                    </div>
+                                </td>
+                                <td class="cart-table__column cart-table__column--total" data-title="Total">{{ item.total|currency }}</td>
+                                <td class="cart-table__column cart-table__column--remove">
+                                    <button type="button" class="cart-table__remove btn btn-sm btn-icon btn-muted">
+                                        {{ svg('cross-12.svg') }}
+                                    </button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <tfoot class="cart-table__foot">
+                        <tr>
+                            <td colspan="6">
+                                <div class="cart-table__actions">
+                                    <form class="cart-table__coupon-form form-row">
+                                        <div class="form-group mb-0 col flex-grow-1">
+                                            <input type="text" class="form-control form-control-sm" placeholder="Coupon Code">
+                                        </div>
+                                        <div class="form-group mb-0 col-auto">
+                                            <button type="button" class="btn btn-sm btn-primary">Apply Coupon</button>
+                                        </div>
+                                    </form>
+                                    <div class="cart-table__update-button">
+                                        <a class="btn btn-sm btn-primary" href="">Update Cart</a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="cart__totals">
+                    <div class="card">
+                        <div class="card-body card-body--padding--2">
+                            <h3 class="card-title">Cart Totals</h3>
+
+                            <table class="cart__totals-table">
+                                <thead>
+                                <tr>
+                                    <th>Subtotal</th>
+                                    <td>$5,877.00</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th>Shipping</th>
+                                    <td>
+                                        $25.00
+                                        <div>
+                                            <a href="">Calculate shipping</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Tax</th>
+                                    <td>$0.00</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    <td>$5,902.00</td>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                            <a class="btn btn-primary btn-xl btn-block" href="">
+                                Proceed to checkout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'before-footer'}} %}
+{% endblock %}

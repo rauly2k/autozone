@@ -1,0 +1,48 @@
+{
+  "items": [
+    {
+      "image": "images/products/product-4.jpg",
+      "name": "Glossy Gray 19\" Aluminium Wheel AR-19",
+      "options": [
+        {"name": "Color", "value": "Yellow"},
+        {"name": "Material", "value": "Aluminium"}
+      ],
+      "rating": 4,
+      "price": 699,
+      "quantity": 2,
+      "total": 1398
+    },
+    {
+      "image": "images/products/product-2.jpg",
+      "name": "Brandix Brake Kit BDX-750Z370-S",
+      "options": [],
+      "rating": 3,
+      "price": 849,
+      "quantity": 1,
+      "total": 849
+    },
+    {
+      "image": "images/products/product-5.jpg",
+      "name": "Twin Exhaust Pipe From Brandix Z54",
+      "options": [
+        {"name": "Color", "value": "True Red"}
+      ],
+      "rating": 5,
+      "price": 1210,
+      "quantity": 3,
+      "total": 3630
+    }
+  ],
+  "totals": [
+    {"title": "Subtotal", "value": 5877},
+    {"title": "Shipping", "value": 25, "shipping": true},
+    {"title": "Tax", "value": 0},
+    {"title": "Total", "value": 5902}
+  ],
+  "checkout_totals": [
+    {"title": "Subtotal", "value":  5877},
+    {"title": "Store Credit", "value":  -20},
+    {"title": "Shipping", "value":  25},
+    {"title": "Total", "value":  5882}
+  ]
+}

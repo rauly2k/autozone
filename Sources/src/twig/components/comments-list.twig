@@ -1,0 +1,49 @@
+{#
+// inputs:
+// - comments: array  - array of comments data
+// - level:    number - cuurent comments level (default: 0)
+// - classes:  string - CSS classes to be applied to the root elemen (default: '')
+#}
+
+{% set comments = inputs.comments %}
+{% set level = inputs.level|default(0) %}
+{% set classes = inputs.classes|default('') %}
+
+{% set root_classes = classnames('comments-list', 'comments-list--level--'~level, classes) %}
+
+<ol class="{{ root_classes }}">
+    {% for comment in comments %}
+        <li class="comments-list__item">
+            <div class="comment">
+                <div class="comment__body">
+                    <div class="comment__avatar">
+                        <img src="{{ image(comment.avatar, {size: 38}) }}" alt="">
+                    </div>
+                    <div class="comment__meta">
+                        <div class="comment__author">
+                            {{ comment.author }}
+                        </div>
+                        <div class="comment__date">
+                            {{ comment.date }}
+                        </div>
+                    </div>
+                    <div class="comment__reply">
+                        <button type="button" class="btn btn-xs btn-light">Reply</button>
+                    </div>
+                    <div class="comment__content typography">
+                        {{ comment.text }}
+                    </div>
+                </div>
+            </div>
+
+            {% if comment.children %}
+                <div class="comments-list__children">
+                    {% include '/components/comments-list.twig' with {inputs: {
+                        comments: comment.children,
+                        level: level + 1,
+                    }} %}
+                </div>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ol>

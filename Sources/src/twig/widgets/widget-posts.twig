@@ -1,0 +1,29 @@
+{#
+// inputs:
+#}
+
+{% set posts = data('blog-posts.json') %}
+
+<div class="card widget widget-posts">
+    <div class="widget__header">
+        <h4>Latest Posts</h4>
+    </div>
+
+    <ul class="widget-posts__list">
+        {% for post in posts[:4] %}
+        <li class="widget-posts__item">
+            <div class="widget-posts__image">
+                <a href="">
+                    <img src="{{ image(post.image, {size: 70}) }}" alt="">
+                </a>
+            </div>
+            <div class="widget-posts__info">
+                <div class="widget-posts__name">
+                    <a href="">{{ post.title }}</a>
+                </div>
+                <div class="widget-posts__date">{{ post.date }}</div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

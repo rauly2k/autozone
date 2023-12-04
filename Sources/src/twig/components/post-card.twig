@@ -1,0 +1,45 @@
+{#
+// inputs:
+// - post:   object - post object
+// - layout: string - one of [list, grid, grid-sm]
+#}
+
+{% set post = inputs.post %}
+{% set layout = inputs.layout %}
+
+{% set root_classes = classnames('post-card') %}
+
+{% if layout %}
+    {% set root_classes = classnames(root_classes, 'post-card--layout--'~layout) %}
+{% endif %}
+
+<div class="{{ root_classes }}">
+    <div class="post-card__image">
+        <a href="post-full-width.html">
+            <img src="{{ image(post.image, {size: [730, 485]}) }}" alt="">
+        </a>
+    </div>
+    <div class="post-card__content">
+        <div class="post-card__category">
+            {% for category in post.categories %}
+                <a href="blog-classic-right-sidebar.html">{{ category }}</a>
+            {% endfor %}
+        </div>
+        <div class="post-card__title">
+            <h2><a href="post-full-width.html">{{ post.title }}</a></h2>
+        </div>
+        <div class="post-card__date">
+            By <a href="">Jessica Moore</a> on {{ post.date }}
+        </div>
+        <div class="post-card__excerpt">
+            <div class="typography">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis neque ut purus fermentum, ac pretium
+                nibh facilisis. Vivamus venenatis viverra iaculis. Suspendisse tempor orci non sapien ullamcorper dapibus.
+                Suspendisse at velit diam. Donec pharetra nec enim blandit vulputate.
+            </div>
+        </div>
+        <div class="post-card__more">
+            <a href="post-full-width.html" class="btn btn-secondary btn-sm">Read more</a>
+        </div>
+    </div>
+</div>

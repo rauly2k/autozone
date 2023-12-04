@@ -1,0 +1,179 @@
+{#
+// inputs:
+// - layout:  string - one of [grid, grid-with-features, list, table]
+// - grid:    string - one of [grid-3-sidebar, grid-4-sidebar, grid-4-full, grid-5-full, grid-6-full]
+// - sidebar: string - one of [left, right]
+#}
+
+{% set layout = inputs.layout %}
+{% set grid = inputs.grid %}
+{% set sidebar = inputs.sidebar %}
+
+{% set products = data('shop-products.json') %}
+{% set offcanvas = grid in ['grid-4-full', 'grid-5-full', 'grid-6-full'] ? 'always' : 'mobile' %}
+
+{% set root_classes = classnames('block-split', {
+    'block-split--has-sidebar': sidebar in ['left', 'right'] and offcanvas != 'always',
+}) %}
+
+{% set list_classes = classnames('products-view__list products-list', {
+    'products-list--grid--6': grid == 'grid-6-full',
+    'products-list--grid--5': grid == 'grid-5-full',
+    'products-list--grid--4': grid in ['grid-4-full', 'grid-4-sidebar'],
+    'products-list--grid--3': grid == 'grid-3-sidebar',
+}) %}
+
+{% include '/blocks/block-header.twig' with {inputs: {
+    title: 'Transmission',
+}} %}
+
+<div class="{{ root_classes }}">
+    {% if offcanvas == 'always' %}
+        {% include '/components/shop-sidebar.twig' with {inputs: {
+            offcanvas: offcanvas,
+        }} %}
+    {% endif %}
+    <div class="container">
+        <div class="block-split__row row no-gutters">
+            {% if sidebar == 'left' and offcanvas != 'always' %}
+                <div class="block-split__item block-split__item-sidebar col-auto">
+                    {% include '/components/shop-sidebar.twig' with {inputs: {
+                        offcanvas: offcanvas,
+                    }} %}
+                </div>
+            {% endif %}
+            <div class="block-split__item block-split__item-content col-auto">
+                <div class="block">
+
+                    <div class="products-view">
+                        <div class="{{ classnames('products-view__options view-options', 'view-options--offcanvas--'~offcanvas) }}">
+
+                            <div class="view-options__body">
+                                <button type="button" class="view-options__filters-button filters-button">
+                                    <span class="filters-button__icon">{{ svg('filters-16.svg') }}</span>
+                                    <span class="filters-button__title">Filters</span>
+                                    <span class="filters-button__counter">3</span>
+                                </button>
+
+                                <div class="view-options__layout layout-switcher">
+                                    <div class="layout-switcher__list">
+                                        <button
+                                            type="button"
+                                            class="{{ classnames('layout-switcher__button', {'layout-switcher__button--active': layout == 'grid'}) }}"
+                                            data-layout="grid"
+                                            data-with-features="false"
+                                        >
+                                            {{ svg('layout-grid-16x16.svg') }}
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="{{ classnames('layout-switcher__button', {'layout-switcher__button--active': layout == 'grid-with-features'}) }}"
+                                            data-layout="grid"
+                                            data-with-features="true"
+                                        >
+                                            {{ svg('layout-grid-with-details-16x16.svg') }}
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="{{ classnames('layout-switcher__button', {'layout-switcher__button--active': layout == 'list'}) }}"
+                                            data-layout="list"
+                                            data-with-features="false"
+                                        >
+                                            {{ svg('layout-list-16x16.svg') }}
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="{{ classnames('layout-switcher__button', {'layout-switcher__button--active': layout == 'table'}) }}"
+                                            data-layout="table"
+                                            data-with-features="false"
+                                        >
+                                            {{ svg('layout-table-16x16.svg') }}
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="view-options__legend">
+                                    Showing 6 of 98 products
+                                </div>
+
+                                <div class="view-options__spring"></div>
+
+                                <div class="view-options__select">
+                                    <label for="view-option-sort">Sort:</label>
+                                    <select id="view-option-sort" class="form-control form-control-sm" name="">
+                                        <option value="">Price</option>
+                                    </select>
+                                </div>
+                                <div class="view-options__select">
+                                    <label for="view-option-limit">Show:</label>
+                                    <select id="view-option-limit" class="form-control form-control-sm" name="">
+                                        <option value="">16</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="view-options__body view-options__body--filters">
+                                <div class="view-options__label">Active Filters</div>
+                                <div class="applied-filters">
+                                    <ul class="applied-filters__list">
+                                        <li class="applied-filters__item">
+                                            <a href="" class="applied-filters__button applied-filters__button--filter">
+                                                Sales: Top Sellers
+                                                {{ svg('cross-9-light.svg') }}
+                                            </a>
+                                        </li>
+                                        <li class="applied-filters__item">
+                                            <a href="" class="applied-filters__button applied-filters__button--filter">
+                                                Color: True Red
+                                                {{ svg('cross-9-light.svg') }}
+                                            </a>
+                                        </li>
+                                        <li class="applied-filters__item">
+                                            <button type="button" class="applied-filters__button applied-filters__button--clear">Clear All</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="{{ list_classes }}" data-layout="{{ layout }}" data-with-features="false">
+                            <div class="products-list__head">
+                                <div class="products-list__column products-list__column--image">Image</div>
+                                <div class="products-list__column products-list__column--meta">SKU</div>
+                                <div class="products-list__column products-list__column--product">Product</div>
+                                <div class="products-list__column products-list__column--rating">Rating</div>
+                                <div class="products-list__column products-list__column--price">Price</div>
+                            </div>
+                            <div class="products-list__content">
+                                {% for product in products %}
+                                    <div class="products-list__item">
+                                        {% include '/components/product-card.twig' with {inputs: {
+                                            product: product,
+                                        }} %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="products-view__pagination">
+                            <nav aria-label="Page navigation example">
+                                {% include '/components/pagination.twig' %}
+                            </nav>
+                            <div class="products-view__pagination-legend">
+                                Showing 6 of 98 products
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% if sidebar == 'right' and offcanvas != 'always' %}
+                <div class="block-split__item block-split__item-sidebar col-auto">
+                    {% include '/components/shop-sidebar.twig' with {inputs: {
+                        offcanvas: offcanvas,
+                    }} %}
+                </div>
+            {% endif %}
+        </div>
+
+        {% include '/blocks/block-space.twig' with {inputs: {layout: 'before-footer'}} %}
+    </div>
+</div>

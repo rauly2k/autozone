@@ -1,0 +1,40 @@
+{#
+// inputs:
+// - classes: string - CSS classes
+#}
+
+{% set classes = inputs.classes %}
+
+{% set products = data('shop-products.json') %}
+
+{% set root_classes = classnames('card widget widget-products', classes) %}
+
+<div class="{{ root_classes }}">
+    <div class="widget__header">
+        <h4>Latest Products</h4>
+    </div>
+    <div class="widget-products__list">
+        {% for product in products[:5] %}
+            <div class="widget-products__item">
+                <div class="widget-products__image image image--type--product">
+                    <a href="product-full.html" class="image__body">
+                        <img class="image__tag" src="{{ image(product.images[0], {size: 64}) }}" alt="">
+                    </a>
+                </div>
+                <div class="widget-products__info">
+                    <div class="widget-products__name">
+                        <a href="product-full.html">{{ product.name }}</a>
+                    </div>
+                    <div class="widget-products__prices">
+                        {% if product.compareAtPrice %}
+                            <div class="widget-products__price widget-products__price--new">{{ product.price|currency }}</div>
+                            <div class="widget-products__price widget-products__price--old">{{ product.compareAtPrice|currency }}</div>
+                        {% else %}
+                            <div class="widget-products__price widget-products__price--current">{{ product.price|currency }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

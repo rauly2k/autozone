@@ -1,0 +1,29 @@
+{#
+// inputs:
+#}
+
+<ul class="pagination">
+    <li class="page-item disabled">
+        <a class="page-link page-link--with-arrow" href="" aria-label="Previous">
+            <span class="page-link__arrow page-link__arrow--left" aria-hidden="true">{{ svg('arrow-rounded-left-7x11.svg') }}</span>
+        </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+        <span class="page-link">
+            2
+            <span class="sr-only">(current)</span>
+        </span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">4</a></li>
+    <li class="page-item page-item--dots">
+        <div class="pagination__dots"></div>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">9</a></li>
+    <li class="page-item">
+        <a class="page-link page-link--with-arrow" href="" aria-label="Next">
+            <span class="page-link__arrow page-link__arrow--right" aria-hidden="true">{{ svg('arrow-rounded-right-7x11.svg') }}</span>
+        </a>
+    </li>
+</ul>

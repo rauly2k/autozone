@@ -1,0 +1,39 @@
+{#
+// inputs:
+#}
+
+{% set socials = [
+    {name: 'rss', icon: 'fas fa-rss', url: theme.author.profile_url},
+    {name: 'youtube', icon: 'fab fa-youtube', url: theme.author.profile_url},
+    {name: 'facebook', icon: 'fab fa-facebook-f', url: theme.author.profile_url},
+    {name: 'twitter', icon: 'fab fa-twitter', url: theme.author.profile_url},
+    {name: 'instagram', icon: 'fab fa-instagram', url: theme.author.profile_url},
+] %}
+
+<div class="card widget widget-about-us">
+    <div class="widget__header">
+        <h4>About Blog</h4>
+    </div>
+    <div class="widget-about-us__body">
+        <div class="widget-about-us__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt, erat in malesuada aliquam, est erat faucibus purus,
+            eget viverra nulla sem vitae neque. Quisque id sodales libero.
+        </div>
+        <div class="widget-about-us__social-links social-links">
+            <ul class="social-links__list">
+                {% for social in socials %}
+                    {% set item_classes = classnames(
+                        'social-links__item',
+                        'social-links__item--'~social.name
+                    ) %}
+
+                    <li class="{{ item_classes }}">
+                        <a href="{{ social.url }}" target="_blank">
+                            <i class="{{ classnames('widget-social__icon', social.icon) }}"></i>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

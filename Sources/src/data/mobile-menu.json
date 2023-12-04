@@ -1,0 +1,345 @@
+{
+  "root": true,
+  "title": "Menu",
+  "items": [
+    {
+      "type": "settings",
+      "items": [
+        {
+          "type": "language",
+          "value": "images/languages/language-5.png",
+          "label": "Italian",
+          "title": "Language",
+          "panel": {
+            "title": "Language",
+            "items": [
+              {
+                "type": "links",
+                "items": [
+                  {"title": "English", "image": "images/languages/language-1.png"},
+                  {"title": "French", "image": "images/languages/language-2.png"},
+                  {"title": "German", "image": "images/languages/language-3.png"},
+                  {"title": "Russian", "image": "images/languages/language-4.png"},
+                  {"title": "Italian", "image": "images/languages/language-5.png"}
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "currency",
+          "value": "$",
+          "label": "US Dollar",
+          "title": "Currency",
+          "panel": {
+            "title": "Currency",
+            "items": [
+              {
+                "type": "links",
+                "items": [
+                  {"title": "€ Euro"},
+                  {"title": "£ Pound Sterling"},
+                  {"title": "$ US Dollar"},
+                  {"title": "₽ Russian Ruble"}
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {"type": "divider"},
+    {
+      "type": "indicators",
+      "items": [
+        {"icon": "heart-20", "title": "Wishlist", "counter": 0, "url": "wishlist.html"},
+        {"icon": "person-20", "title": "Account", "counter": 0, "url": "account-dashboard.html"},
+        {"icon": "cart-20", "title": "Cart", "counter": 3, "url": "cart.html"},
+        {"icon": "car-20", "title": "Garage", "counter": 0, "url": "account-garage.html"}
+      ]
+    },
+    {"type": "divider"},
+    {
+      "type": "links",
+      "items": [
+        {
+          "title": "Home",
+          "url": "index.html",
+          "panel": {
+            "title": "Home",
+            "items": [
+              {
+                "type": "links",
+                "items": [
+                  {"title": "Home One", "url": "index.html"},
+                  {"title": "Home Two", "url": "index2.html"},
+                  {
+                    "title": "Header Spaceship",
+                    "url": "header-spaceship-variant-one.html",
+                    "panel": {
+                      "title": "Header Spaceship",
+                      "items": [
+                        {
+                          "type": "links",
+                          "items": [
+                            {"title": "Variant One", "url": "header-spaceship-variant-one.html"},
+                            {"title": "Variant Two", "url": "header-spaceship-variant-two.html"},
+                            {"title": "Variant Three", "url": "header-spaceship-variant-three.html"}
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Header Classic",
+                    "url": "header-classic-variant-one.html",
+                    "panel": {
+                      "title": "Header Classic",
+                      "items": [
+                        {
+                          "type": "links",
+                          "items": [
+                            {"title": "Variant One", "url": "header-classic-variant-one.html"},
+                            {"title": "Variant Two", "url": "header-classic-variant-two.html"},
+                            {"title": "Variant Three", "url": "header-classic-variant-three.html"},
+                            {"title": "Variant Four", "url": "header-classic-variant-four.html"},
+                            {"title": "Variant Five", "url": "header-classic-variant-five.html"}
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Mobile Header",
+                    "url": "mobile-header-variant-one.html",
+                    "panel": {
+                      "title": "Mobile Header",
+                      "items": [
+                        {
+                          "type": "links",
+                          "items": [
+                            {"title": "Variant One", "url": "mobile-header-variant-one.html"},
+                            {"title": "Variant Two", "url": "mobile-header-variant-two.html"}
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "Shop",
+          "url": "shop-grid-4-columns-sidebar.html",
+          "panel": {
+            "title": "Shop",
+            "items": [
+              {
+                "type": "links",
+                "items": [
+                  {
+                    "title": "Category",
+                    "url": "category.html",
+                    "panel": {
+                      "title": "Category",
+                      "items": [
+                        {
+                          "type": "links",
+                          "items": [
+                            {"title": "3 Columns Sidebar", "url": "category-3-columns-sidebar.html"},
+                            {"title": "4 Columns Sidebar", "url": "category-4-columns-sidebar.html"},
+                            {"title": "5 Columns Sidebar", "url": "category-5-columns-sidebar.html"},
+                            {"title": "4 Columns Full", "url": "category-4-columns-full.html"},
+                            {"title": "5 Columns Full", "url": "category-5-columns-full.html"},
+                            {"title": "6 Columns Full", "url": "category-6-columns-full.html"},
+                            {"title": "7 Columns Full", "url": "category-7-columns-full.html"},
+                            {"title": "Right Sidebar", "url": "category-right-sidebar.html"}
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Shop Grid",
+                    "url": "shop-grid-4-columns-sidebar.html",
+                    "panel": {
+                      "title": "Shop Grid",
+                      "items": [
+                        {
+                          "type": "links",
+                          "items": [
+                            {"title": "6 Columns Full", "url": "shop-grid-6-columns-full.html"},
+                            {"title": "5 Columns Full", "url": "shop-grid-5-columns-full.html"},
+                            {"title": "4 Columns Full", "url": "shop-grid-4-columns-full.html"},
+                            {"title": "4 Columns Sidebar", "url": "shop-grid-4-columns-sidebar.html"},
+                            {"title": "3 Columns Sidebar", "url": "shop-grid-3-columns-sidebar.html"}
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {"title": "Shop List", "url": "shop-list.html"},
+                  {"title": "Shop Table", "url": "shop-table.html"},
+                  {"title": "Shop Right Sidebar", "url": "shop-right-sidebar.html"},
+                  {
+                    "title": "Product",
+                    "url": "product-full.html",
+                    "panel": {
+                      "title": "Product",
+                      "items": [
+                        {
+                          "type": "links",
+                          "items": [
+                            {"title": "Full Width", "url": "product-full.html"},
+                            {"title": "Left Sidebar", "url": "product-sidebar.html"}
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {"title": "Cart", "url": "cart.html"},
+                  {"title": "Checkout", "url": "checkout.html"},
+                  {"title": "Order Success", "url": "order-success.html"},
+                  {"title": "Wishlist", "url": "wishlist.html"},
+                  {"title": "Compare", "url": "compare.html"},
+                  {"title": "Track Order", "url": "track-order.html"}
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "Blog",
+          "url": "blog-classic-right-sidebar.html",
+          "panel": {
+            "title": "Blog",
+            "items": [
+              {
+                "type": "links",
+                "items": [
+                  {
+                    "title": "Blog Classic",
+                    "url": "blog-classic-right-sidebar.html",
+                    "panel": {
+                      "title": "Blog Classic",
+                      "items": [
+                        {
+                          "type": "links",
+                          "items": [
+                            {"title": "Left Sidebar", "url": "blog-classic-left-sidebar.html"},
+                            {"title": "Right Sidebar", "url": "blog-classic-right-sidebar.html"}
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Blog List",
+                    "url": "blog-list-right-sidebar.html",
+                    "panel": {
+                      "title": "Blog List",
+                      "items": [
+                        {
+                          "type": "links",
+                          "items": [
+                            {"title": "Left Sidebar", "url": "blog-list-left-sidebar.html"},
+                            {"title": "Right Sidebar", "url": "blog-list-right-sidebar.html"}
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Blog Grid",
+                    "url": "blog-grid-right-sidebar.html",
+                    "panel": {
+                      "title": "Blog Grid",
+                      "items": [
+                        {
+                          "type": "links",
+                          "items": [
+                            {"title": "Left Sidebar", "url": "blog-grid-left-sidebar.html"},
+                            {"title": "Right Sidebar", "url": "blog-grid-right-sidebar.html"}
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Post Page",
+                    "url": "post-full-width.html",
+                    "panel": {
+                      "title": "Post Page",
+                      "items": [
+                        {
+                          "type": "links",
+                          "items": [
+                            {"title": "Full Width", "url": "post-full-width.html"},
+                            {"title": "Left Sidebar", "url": "post-left-sidebar.html"},
+                            {"title": "Right Sidebar", "url": "post-right-sidebar.html"}
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {"title": "Post Without Image", "url": "post-without-image.html"}
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "Account",
+          "url": "account-login.html",
+          "panel": {
+            "title": "Account",
+            "items": [
+              {
+                "type": "links",
+                "items": [
+                  {"title": "Login & Register", "url": "account-login.html"},
+                  {"title": "Dashboard", "url": "account-dashboard.html"},
+                  {"title": "Garage", "url": "account-garage.html"},
+                  {"title": "Edit Profile", "url": "account-profile.html"},
+                  {"title": "Order History", "url": "account-orders.html"},
+                  {"title": "Order Details", "url": "account-order-details.html"},
+                  {"title": "Address Book", "url": "account-addresses.html"},
+                  {"title": "Edit Address", "url": "account-edit-address.html"},
+                  {"title": "Change Password", "url": "account-password.html"}
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "title": "Pages",
+          "url": "about-us.html",
+          "panel": {
+            "title": "Pages",
+            "items": [
+              {
+                "type": "links",
+                "items": [
+                  {"title": "About Us", "url": "about-us.html"},
+                  {"title": "Contact Us v1", "url": "contact-us-v1.html"},
+                  {"title": "Contact Us v2", "url": "contact-us-v2.html"},
+                  {"title": "404", "url": "404.html"},
+                  {"title": "Terms And Conditions", "url": "terms.html"},
+                  {"title": "FAQ", "url": "faq.html"},
+                  {"title": "Components", "url": "components.html"},
+                  {"title": "Typography", "url": "typography.html"}
+                ]
+              }
+            ]
+          }
+        },
+        {"title": "Buy Theme", "url": "https://themeforest.net/item/redparts-auto-parts-html-template/24735474", "external": true, "highlight":  true}
+      ]
+    },
+    {"type": "spring"},
+    {"type": "divider"},
+    {"type": "contacts", "title": "800 060-0730", "subtitle": "Free call 24/7"}
+  ]
+}

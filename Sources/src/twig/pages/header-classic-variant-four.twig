@@ -1,0 +1,16 @@
+{% set global_header_layout = global_header_layout|default('classic') %}
+{% set global_header_style = 'style.header-classic-variant-four.css' %}
+{% set global_page_title = 'Header Classic Variant Four — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-lg'}} %}
+
+    <div class="container text-center py-5 my-5 text-muted">
+        Header classic variant four
+    </div>
+
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-lg'}} %}
+{% endblock %}

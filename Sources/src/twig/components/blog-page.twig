@@ -1,0 +1,64 @@
+{#
+// inputs:
+// - layout:  string - one of [classic, grid, list]
+// - sidebar: string - one of [left, right]
+#}
+
+{% set layout = inputs.layout %}
+{% set sidebar = inputs.sidebar %}
+
+{% set posts = data('blog-posts.json') %}
+
+{% set root_classes = classnames('block blog-view', 'blog-view--layout--'~layout) %}
+{% set list_classes = classnames('posts-view__list posts-list', {
+    'posts-list--layout--classic': layout == 'classic',
+    'posts-list--layout--list': layout == 'list',
+    'posts-list--layout--grid-2': layout == 'grid',
+}) %}
+{% set post_card_layout = {
+    classic: 'grid',
+    list: 'list',
+    grid: 'grid-sm'
+}[layout] %}
+
+{% include '/blocks/block-header.twig' with {inputs: {
+    title: 'Latest News'
+}} %}
+
+<div class="{{ root_classes }}">
+    <div class="container">
+        <div class="blog-view__body">
+            {% if sidebar == 'left' %}
+                <div class="blog-view__item blog-view__item-sidebar">
+                    {% include '/components/blog-sidebar.twig' %}
+                </div>
+            {% endif %}
+            <div class="blog-view__item blog-view__item-posts">
+                <div class="block posts-view">
+                    <div class="{{ list_classes }}">
+                        <div class="posts-list__body">
+                            {% for post in posts %}
+                                <div class="posts-list__item">
+                                    {% include '/components/post-card.twig' with {inputs: {
+                                        post: post,
+                                        layout: post_card_layout,
+                                    }} %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="posts-view__pagination">
+                        {% include '/components/pagination.twig' %}
+                    </div>
+                </div>
+            </div>
+            {% if sidebar == 'right' %}
+                <div class="blog-view__item blog-view__item-sidebar">
+                    {% include '/components/blog-sidebar.twig' %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% include '/blocks/block-space.twig' with {inputs: {layout: 'before-footer'}} %}

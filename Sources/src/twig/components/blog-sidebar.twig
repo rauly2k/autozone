@@ -1,0 +1,15 @@
+{#
+// inputs:
+#}
+
+{% set categories = data('blog-widget-categories.json') %}
+
+{% include '/widgets/widget-search.twig' %}
+{% include '/widgets/widget-about-us.twig' %}
+{% include '/widgets/widget-categories.twig' with {inputs: {
+    categories: categories,
+}} %}
+{% include '/widgets/widget-posts.twig' %}
+{% include '/widgets/widget-newsletter.twig' %}
+{% include '/widgets/widget-comments.twig' %}
+{% include '/widgets/widget-tags.twig' %}

@@ -1,0 +1,194 @@
+{#
+// inputs:
+#}
+
+{% set topbar %}
+    {% set topbar_classes = classnames('topbar', {
+        'topbar--spaceship-end': global_header_layout == 'spaceship',
+        'topbar--classic': global_header_layout == 'classic',
+    }) %}
+
+    <div class="{{ topbar_classes }}">
+        {% if global_header_layout == 'classic' %}
+            <div class="topbar__item-text"><a class="topbar__link" href="about-us.html">About Us</a></div>
+            <div class="topbar__item-text"><a class="topbar__link" href="contact-us-v1.html">Contacts</a></div>
+            <div class="topbar__item-text"><a class="topbar__link" href="">Store Location</a></div>
+            <div class="topbar__item-text"><a class="topbar__link" href="track-order.html">Track Order</a></div>
+            <div class="topbar__item-text"><a class="topbar__link" href="blog-classic-right-sidebar.html">Blog</a></div>
+            <div class="topbar__item-spring"></div>
+        {% endif %}
+        <div class="topbar__item-button">
+            <a href="" class="topbar__button">
+                <span class="topbar__button-label">Compare:</span>
+                <span class="topbar__button-title">5</span>
+            </a>
+        </div>
+        <div class="topbar__item-button topbar__menu">
+            <button class="topbar__button topbar__button--has-arrow topbar__menu-button" type="button">
+                <span class="topbar__button-label">Currency:</span>
+                <span class="topbar__button-title">USD</span>
+                <span class="topbar__button-arrow">{{ svg('arrow-down-sm-7x5.svg') }}</span>
+            </button>
+            <div class="topbar__menu-body">
+                <a class="topbar__menu-item" href="#">€ Euro</a>
+                <a class="topbar__menu-item" href="#">£ Pound Sterling</a>
+                <a class="topbar__menu-item" href="#">$ US Dollar</a>
+                <a class="topbar__menu-item" href="#">₽ Russian Ruble</a>
+            </div>
+        </div>
+        <div class="topbar__menu">
+            <button class="topbar__button topbar__button--has-arrow topbar__menu-button" type="button">
+                <span class="topbar__button-label">Language:</span>
+                <span class="topbar__button-title">EN</span>
+                <span class="topbar__button-arrow">{{ svg('arrow-down-sm-7x5.svg') }}</span>
+            </button>
+            <div class="topbar__menu-body">
+                <a class="topbar__menu-item" href="#">
+                    <img src="images/languages/language-1.png" alt=""><span>English</span>
+                </a>
+                <a class="topbar__menu-item" href="#">
+                    <img src="images/languages/language-2.png" alt=""><span>French</span>
+                </a>
+                <a class="topbar__menu-item" href="#">
+                    <img src="images/languages/language-3.png" alt=""><span>German</span>
+                </a>
+                <a class="topbar__menu-item" href="#">
+                    <img src="images/languages/language-4.png" alt=""><span>Russian</span>
+                </a>
+                <a class="topbar__menu-item" href="#">
+                    <img src="images/languages/language-5.png" alt=""><span>Italian</span>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endset %}
+
+<div class="header">
+    <div class="header__megamenu-area megamenu-area"></div>
+    {% if global_header_layout == 'spaceship' %}
+        <div class="header__topbar-start-bg"></div>
+        <div class="header__topbar-start">
+            <div class="topbar topbar--spaceship-start">
+                <div class="topbar__item-text d-none d-xxl-flex">Call Us: (800) 060-0730</div>
+                <div class="topbar__item-text"><a class="topbar__link" href="about-us.html">About Us</a></div>
+                <div class="topbar__item-text"><a class="topbar__link" href="contact-us-v1.html">Contacts</a></div>
+                <div class="topbar__item-text"><a class="topbar__link" href="track-order.html">Track Order</a></div>
+            </div>
+        </div>
+        <div class="header__topbar-end-bg"></div>
+        <div class="header__topbar-end">
+            {{ topbar }}
+        </div>
+    {% endif %}
+    {% if global_header_layout == 'classic' %}
+        <div class="header__topbar-classic-bg"></div>
+        <div class="header__topbar-classic">
+            {{ topbar }}
+        </div>
+    {% endif %}
+    <div class="header__navbar">
+        <div class="header__navbar-departments">
+            {% include '/header/departments.twig' %}
+        </div>
+        <div class="header__navbar-menu">
+            {% include '/header/main-menu.twig' %}
+        </div>
+        {% if global_header_layout == 'classic' %}
+            <div class="header__navbar-phone phone">
+                <a href="" class="phone__body">
+                    <div class="phone__title">Call Us:</div>
+                    <div class="phone__number">800 060-0730</div>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="header__logo">
+        {% include '/header/logo.twig' %}
+    </div>
+    <div class="header__search">
+        {% include '/header/search.twig' %}
+    </div>
+    <div class="header__indicators">
+        <div class="indicator">
+            <a href="wishlist.html" class="indicator__button">
+                <span class="indicator__icon">
+                    {{ svg('heart-32.svg') }}
+                </span>
+            </a>
+        </div>
+        <div class="indicator indicator--trigger--click">
+            <a href="account-login.html" class="indicator__button">
+                <span class="indicator__icon">
+                    {{ svg('person-32.svg') }}
+                </span>
+                {% if global_header_layout == 'classic' or true %}
+                    <span class="indicator__title">Hello, Log In</span>
+                    <span class="indicator__value">My Account</span>
+                {% endif %}
+            </a>
+            <div class="indicator__content">
+                <div class="account-menu">
+                    <form class="account-menu__form">
+                        <div class="account-menu__form-title">
+                            Log In to Your Account
+                        </div>
+                        <div class="form-group">
+                            <label for="header-signin-email" class="sr-only">Email address</label>
+                            <input id="header-signin-email" type="email" class="form-control form-control-sm" placeholder="Email address">
+                        </div>
+                        <div class="form-group">
+
+                            <label for="header-signin-password" class="sr-only">Password</label>
+                            <div class="account-menu__form-forgot">
+                                <input id="header-signin-password" type="password" class="form-control form-control-sm" placeholder="Password">
+                                <a href="" class="account-menu__form-forgot-link">Forgot?</a>
+                            </div>
+                        </div>
+
+                        <div class="form-group account-menu__form-button">
+                            <button type="submit" class="btn btn-primary btn-sm">Login</button>
+                        </div>
+                        <div class="account-menu__form-link">
+                            <a href="account-login.html">Create An Account</a>
+                        </div>
+                    </form>
+                    <div class="account-menu__divider"></div>
+                    <a href="" class="account-menu__user">
+                        <div class="account-menu__user-avatar">
+                            <img src="images/avatars/avatar-4.jpg" alt="">
+                        </div>
+                        <div class="account-menu__user-info">
+                            <div class="account-menu__user-name">Ryan Ford</div>
+                            <div class="account-menu__user-email">red-parts@example.com</div>
+                        </div>
+                    </a>
+                    <div class="account-menu__divider"></div>
+                    <ul class="account-menu__links">
+                        <li><a href="account-dashboard.html">Dashboard</a></li>
+                        <li><a href="account-dashboard.html">Garage</a></li>
+                        <li><a href="account-profile.html">Edit Profile</a></li>
+                        <li><a href="account-orders.html">Order History</a></li>
+                        <li><a href="account-addresses.html">Addresses</a></li>
+                    </ul>
+                    <div class="account-menu__divider"></div>
+                    <ul class="account-menu__links">
+                        <li><a href="account-login.html">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="indicator indicator--trigger--click">
+            <a href="cart.html" class="indicator__button">
+                <span class="indicator__icon">
+                    {{ svg('cart-32.svg') }}
+                    <span class="indicator__counter">3</span>
+                </span>
+                <span class="indicator__title">Shopping Cart</span>
+                <span class="indicator__value">$250.00</span>
+            </a>
+            <div class="indicator__content">
+                {% include '/header/dropcart.twig' %}
+            </div>
+        </div>
+    </div>
+</div>

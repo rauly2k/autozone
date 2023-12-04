@@ -1,0 +1,90 @@
+{#
+// inputs:
+// - layout: string - one of [
+//     columns-3-sidebar,
+//     columns-4-sidebar,
+//     columns-5-sidebar,
+//     columns-4-full,
+//     columns-5-full,
+//     columns-6-full,
+//     columns-7-full
+// ]
+// - sidebar: string - one of [left, right] (default: left)
+#}
+
+{% set layout = inputs.layout %}
+{% set sidebar = inputs.sidebar|default('left') %}
+
+{% set categories = data('shop-categories.json') %}
+
+{% set show_sidebar = layout in ['columns-3-sidebar', 'columns-4-sidebar', 'columns-5-sidebar'] %}
+
+{% set root_classes = classnames('block block-split', {
+    'block-split--has-sidebar': show_sidebar,
+}) %}
+{% set list_classes = classnames('categories-list', 'categories-list--layout--'~layout) %}
+
+{% include '/blocks/block-header.twig' with {inputs: {
+    title: 'Tires & Wheels',
+}} %}
+
+<div class="{{ root_classes }}">
+    <div class="container">
+        <div class="block-split__row row no-gutters">
+            {% if sidebar == 'left' and show_sidebar %}
+                <div class="block-split__item block-split__item-sidebar col-auto">
+                    {% include '/components/category-sidebar.twig' %}
+                </div>
+            {% endif %}
+            <div class="block-split__item block-split__item-content col-auto">
+                <div class="block">
+                    <div class="{{ list_classes }}">
+                        <ul class="categories-list__body">
+                            {% for category in categories %}
+                                <li class="categories-list__item">
+                                    <a href="">
+                                        <div class="image image--type--category">
+                                            <div class="image__body">
+                                                <img class="image__tag" src="{{ image(category.image, {size: 200}) }}" alt="">
+                                            </div>
+                                        </div>
+
+                                        <div class="categories-list__item-name">{{ category.name }}</div>
+                                    </a>
+                                    <div class="categories-list__item-products">{{ category.products }} Products</div>
+                                </li>
+                                <li class="categories-list__divider"></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+
+                {% include '/blocks/block-products-carousel.twig' with {inputs: {
+                    title: 'Bestsellers',
+                    layout: show_sidebar ? 'grid-4-sidebar' : 'grid-5'
+                }} %}
+                {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+
+                {% include '/blocks/block-products-carousel.twig' with {inputs: {
+                    title: 'Featured Products',
+                    layout: show_sidebar ? 'horizontal-sidebar' : 'horizontal',
+                    rows: 2,
+                }} %}
+                {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+
+                {% include '/blocks/block-brands.twig' with {inputs: {
+                    layout: show_sidebar ? 'columns-7-sidebar' : 'columns-8-full'
+                }} %}
+            </div>
+            {% if sidebar == 'right' and show_sidebar %}
+                <div class="block-split__item block-split__item-sidebar col-auto">
+                    {% include '/components/category-sidebar.twig' %}
+                </div>
+            {% endif %}
+        </div>
+
+        {% include '/blocks/block-space.twig' with {inputs: {layout: 'before-footer'}} %}
+    </div>
+</div>

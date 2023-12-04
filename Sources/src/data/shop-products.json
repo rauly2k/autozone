@@ -1,0 +1,307 @@
+[
+  {
+    "id": 1,
+    "name": "Brandix Spark Plug Kit ASR-400",
+    "sku": "140-10440-B",
+    "price": 19,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-1.jpg"
+    ],
+    "badges": ["sale", "new", "hot"],
+    "rating": 4,
+    "reviews": 3,
+    "availability": "in-stock",
+    "features": {
+      "weight": "0.1 Kg",
+      "color": "Gray",
+      "material": "Thorium"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Brandix Brake Kit BDX-750Z370-S",
+    "sku": "573-23743-C",
+    "price": 224,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-2.jpg"
+    ],
+    "badges": [],
+    "rating": 5,
+    "reviews": 22,
+    "availability": "in-stock",
+    "features": {
+      "weight": "2.3 Kg",
+      "color": "Red",
+      "material": "Steel"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Left Headlight Of Brandix Z54",
+    "sku": "009-50078-Z",
+    "price": 349,
+    "compareAtPrice": 415,
+    "images": [
+      "images/products/product-3.jpg"
+    ],
+    "badges": ["sale"],
+    "rating": 3,
+    "reviews": 14,
+    "availability": "in-stock",
+    "features": {
+      "weight": "1.4 Kg",
+      "color": "Black",
+      "material": "Plastic"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Glossy Gray 19\" Aluminium Wheel AR-19",
+    "sku": "A43-44328-B",
+    "price": 589,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-4.jpg"
+    ],
+    "badges": ["hot"],
+    "rating": 4,
+    "reviews": 26,
+    "availability": "in-stock",
+    "features": {
+      "weight": "5 Kg",
+      "color": "Black",
+      "material": "Aluminium"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Twin Exhaust Pipe From Brandix Z54",
+    "sku": "729-51203-B",
+    "price": 749,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-5.jpg"
+    ],
+    "badges": [],
+    "rating": 4,
+    "reviews": 9,
+    "availability": "in-stock",
+    "features": {
+      "weight": "2 Kg",
+      "color": "Metallic",
+      "material": "Aluminium"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Motor Oil Level 5",
+    "sku": "573-49386-C",
+    "price": 23,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-6.jpg"
+    ],
+    "badges": [],
+    "rating": 5,
+    "reviews": 2,
+    "availability": "in-stock"
+  },
+  {
+    "id": 7,
+    "name": "Brandix Engine Block Z4",
+    "sku": "753-38573-B",
+    "price": 452,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-7.jpg"
+    ],
+    "badges": [],
+    "rating": 0,
+    "reviews": 0,
+    "availability": "in-stock"
+  },
+  {
+    "id": 8,
+    "name": "Brandix Clutch Discs Z175",
+    "sku": "472-67382-Z",
+    "price": 345,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-8.jpg"
+    ],
+    "badges": [],
+    "rating": 3,
+    "reviews": 7,
+    "availability": "in-stock"
+  },
+  {
+    "id": 9,
+    "name": "Brandix Manual Five Speed Gearbox",
+    "sku": "855-78336-G",
+    "price": 879,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-9.jpg"
+    ],
+    "badges": [],
+    "rating": 4,
+    "reviews": 6,
+    "availability": "in-stock"
+  },
+  {
+    "id": 10,
+    "name": "Set of Car Floor Mats Brandix Z4",
+    "sku": "473-75662-R",
+    "price": 78,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-10.jpg"
+    ],
+    "badges": [],
+    "rating": 4,
+    "reviews": 16,
+    "availability": "in-stock"
+  },
+  {
+    "id": 11,
+    "name": "Taillights Brandix Z54",
+    "sku": "521-57812-H",
+    "price": 60,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-11.jpg"
+    ],
+    "badges": [],
+    "rating": 2,
+    "reviews": 8,
+    "availability": "in-stock"
+  },
+  {
+    "id": 12,
+    "name": "Wiper Blades Brandix WL2",
+    "sku": "994-34346-B",
+    "price": 12,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-12.jpg"
+    ],
+    "badges": [],
+    "rating": 5,
+    "reviews": 41,
+    "availability": "in-stock"
+  },
+  {
+    "id": 13,
+    "name": "Fantastic 12-Stroke Engine With A Power of 1991 hp",
+    "sku": "985-00884-S",
+    "price": 2579,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-13.jpg"
+    ],
+    "badges": [],
+    "rating": 3,
+    "reviews": 17,
+    "availability": "in-stock"
+  },
+  {
+    "id": 14,
+    "name": "Set of Four 19 Inch Spiked Tires",
+    "sku": "855-56888-U",
+    "price": 327,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-14.jpg"
+    ],
+    "badges": [],
+    "rating": 4,
+    "reviews": 9,
+    "availability": "in-stock"
+  },
+  {
+    "id": 15,
+    "name": "40 Megawatt Low Beam Lamp",
+    "sku": "345-99553-E",
+    "price": 4,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-15.jpg"
+    ],
+    "badges": [],
+    "rating": 4,
+    "reviews": 31,
+    "availability": "in-stock"
+  },
+  {
+    "id": 16,
+    "name": "Brandix Driver's seat",
+    "sku": "563-73744-Q",
+    "price": 78,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-16.jpg"
+    ],
+    "badges": [],
+    "rating": 3,
+    "reviews": 4,
+    "availability": "in-stock"
+  },
+  {
+    "id": 17,
+    "name": "Air Filter From Ash's Chainsaw",
+    "sku": "999-60606-X",
+    "price": 666.99,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-17.jpg"
+    ],
+    "badges": [],
+    "rating": 5,
+    "reviews": 66,
+    "availability": "in-stock"
+  },
+  {
+    "id": 18,
+    "name": "Side Rearview Mirror",
+    "sku": "545-74573-D",
+    "price": 40,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-18.jpg"
+    ],
+    "badges": [],
+    "rating": 4,
+    "reviews": 25,
+    "availability": "in-stock"
+  },
+  {
+    "id": 19,
+    "name": "Brandix Car Door Lock",
+    "sku": "965-73344-F",
+    "price": 21,
+    "compareAtPrice": 31,
+    "images": [
+      "images/products/product-19.jpg"
+    ],
+    "badges": ["sale"],
+    "rating": 3,
+    "reviews": 24,
+    "availability": "in-stock"
+  },
+  {
+    "id": 20,
+    "name": "Air Suspension For Brandix Car",
+    "sku": "365-32667-P",
+    "price": 162,
+    "compareAtPrice": null,
+    "images": [
+      "images/products/product-20.jpg"
+    ],
+    "badges": [],
+    "rating": 5,
+    "reviews": 7,
+    "availability": "in-stock"
+  }
+]

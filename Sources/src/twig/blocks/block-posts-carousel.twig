@@ -1,0 +1,39 @@
+{#
+// inputs:
+// - title:  string - section title
+// - layout: string - one of [grid, list]
+// - links:  array  - object of {title: string, url: string} (default: [])
+#}
+
+{% set title = inputs.title %}
+{% set layout = inputs.layout %}
+{% set links = inputs.links|default([]) %}
+
+{% set posts = data('blog-posts.json')[:6] %}
+
+{% set root_classes = classnames('block block-posts-carousel', {
+    'block-posts-carousel--layout--grid': layout == 'grid',
+    'block-posts-carousel--layout--list': layout == 'list',
+}) %}
+
+<div class="{{ root_classes }}" data-layout="{{ layout }}">
+    <div class="container">
+        {% include '/components/section-header.twig' with {inputs: {
+            title: title,
+            arrows: true,
+            links: links,
+        }} %}
+
+        <div class="block-posts-carousel__carousel">
+            <div class="owl-carousel">
+                {% for post in posts %}
+                    <div class="block-posts-carousel__item">
+                        {% include '/components/post-card.twig' with {inputs: {
+                            post: post,
+                        }} %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

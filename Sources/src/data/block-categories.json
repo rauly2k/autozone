@@ -1,0 +1,78 @@
+[
+  {
+    "image": "images/categories/category-1.jpg",
+    "name": "Headlights",
+    "children": [
+      "Headlights",
+      "Tail Lights",
+      "Fog Lights",
+      "Turn Signals",
+      "Switches & Relays",
+      "Corner Lights"
+    ]
+  },
+  {
+    "image": "images/categories/category-2.jpg",
+    "name": "Fuel System",
+    "children": [
+      "Fuel Pumps",
+      "Motor Oil",
+      "Spark Plugs",
+      "Fuel Injector",
+      "Control Motor",
+      "Carburetor"
+    ]
+  },
+  {
+    "image": "images/categories/category-3.jpg",
+    "name": "Body Parts",
+    "children": [
+      "Bumpers",
+      "Hoods",
+      "Grilles",
+      "Fog Lights",
+      "Door Handles",
+      "Car Covers",
+      "Tailgates"
+    ]
+  },
+  {
+    "image": "images/categories/category-4.jpg",
+    "name": "Interior Parts",
+    "children": [
+      "Dashboards",
+      "Seat Covers",
+      "Floor Mats",
+      "Sun Shades",
+      "Visors",
+      "Car Covers",
+      "Accessories"
+    ]
+  },
+  {
+    "image": "images/categories/category-5.jpg",
+    "name": "Wheels & Tires",
+    "children": [
+      "Wheel Covers",
+      "Brake Kits",
+      "Tire Chains",
+      "Wheel disks",
+      "Tires",
+      "Sensors",
+      "Accessories"
+    ]
+  },
+  {
+    "image": "images/categories/category-6.jpg",
+    "name": "Engine & Drivetrain",
+    "children": [
+      "Air Filters",
+      "Oxygen Sensors",
+      "Heating",
+      "Exhaust",
+      "Cranks & Pistons",
+      "Radiators",
+      "Cooling Systems"
+    ]
+  }
+]

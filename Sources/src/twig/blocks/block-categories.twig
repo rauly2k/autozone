@@ -1,0 +1,55 @@
+{#
+// inputs:
+#}
+
+{% set categories = data('block-categories.json') %}
+
+<div class="block block-categories">
+    <div class="container">
+        <div class="block-categories__header">
+            <div class="block-categories__title">
+                Popular Categories
+                {% include '/components/decor.twig' with {inputs: {
+                    type: 'center',
+                    classes: 'block-categories__title-decor',
+                }} %}
+            </div>
+        </div>
+    </div>
+    <div class="block-categories__body">
+        {% include '/components/decor.twig' with {inputs: {
+            type: 'bottom',
+            classes: 'block-categories__body-decor',
+        }} %}
+        <div class="container">
+            <div class="block-categories__list">
+                {% for category in categories %}
+                    <div class="block-categories__item category-card category-card--layout--classic">
+                        <div class="category-card__body">
+                            <div class="category-card__content">
+                                <div class="category-card__image image image--type--category">
+                                    <a href="" class="image__body">
+                                        <img class="image__tag" src="{{ image(category.image, {size: 160}) }}" alt="">
+                                    </a>
+                                </div>
+                                <div class="category-card__info">
+                                    <div class="category-card__name">
+                                        <a href="">{{ category.name }}</a>
+                                    </div>
+                                    <ul class="category-card__children">
+                                        {% for child in category.children[:5] %}
+                                            <li><a href="">{{ child }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                    <div class="category-card__actions">
+                                        <a href="" class="category-card__link">Shop All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

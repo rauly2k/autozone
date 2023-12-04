@@ -1,0 +1,56 @@
+{#
+// inputs:
+#}
+
+{% set products = data('shop-products.json') %}
+
+<div class="block block-sale">
+    <div class="block-sale__content">
+        <div class="block-sale__header">
+            <div class="block-sale__title">Attention! Deal Zone</div>
+            <div class="block-sale__subtitle">Hurry up! Discounts up to 70%</div>
+            <div class="block-sale__timer">
+                {% include '/components/timer.twig' %}
+            </div>
+            <div class="block-sale__controls">
+                {% include '/components/arrow.twig' with {inputs: {
+                    classes: 'block-sale__arrow block-sale__arrow--prev',
+                    direction: 'prev',
+                }} %}
+                <div class="block-sale__link"><a href="">View All Available Offers</a></div>
+                {% include '/components/arrow.twig' with {inputs: {
+                    classes: 'block-sale__arrow block-sale__arrow--next',
+                    direction: 'next',
+                }} %}
+                {% include '/components/decor.twig' with {inputs: {
+                    type: 'center',
+                    classes: 'block-sale__header-decor',
+                }} %}
+            </div>
+        </div>
+        <div class="block-sale__body">
+            {% include '/components/decor.twig' with {inputs: {
+                type: 'bottom',
+                classes: 'block-sale__body-decor',
+            }} %}
+            <div
+                class="block-sale__image"
+                style="background-image: url('{{ image('images/sale.jpg', {size: [1903, 640]}) }}');"
+            ></div>
+            <div class="container">
+                <div class="block-sale__carousel">
+                    <div class="owl-carousel">
+                        {% for product in products[:8] %}
+                            <div class="block-sale__item">
+                                {% include '/components/product-card.twig' with {inputs: {
+                                    product: product,
+                                    exclude: ['features', 'list-buttons'],
+                                }} %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

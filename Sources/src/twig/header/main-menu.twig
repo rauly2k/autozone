@@ -1,0 +1,41 @@
+{#
+// inputs:
+#}
+
+{% set menu = data('header-main-menu.json') %}
+
+<div class="main-menu">
+    <ul class="main-menu__list">
+        {% for item in menu if not item.ignore_in or global_header_layout not in item.ignore_in %}
+            {% set item_classes = classnames('main-menu__item', {
+                'main-menu__item--has-submenu': item.submenu,
+                'main-menu__item--submenu--menu': item.submenu.type == 'menu',
+                'main-menu__item--submenu--megamenu': item.submenu.type == 'megamenu'
+            }) %}
+
+            <li class="{{ item_classes }}">
+                <a href="{{ item.url }}" class="main-menu__link"{% if item.external %} target="_blank"{% endif %}>
+                    {{ item.title }}
+                    {% if item.submenu %}
+                        {{ svg('arrow-down-sm-7x5.svg') }}
+                    {% endif %}
+                </a>
+                {% if item.submenu %}
+                    <div class="main-menu__submenu">
+                        {% if item.submenu.type == 'menu' %}
+                            {% include '/header/menu.twig' with {inputs: {
+                                menu: item.submenu.links,
+                            }} %}
+                        {% elseif item.submenu.type == 'megamenu' %}
+                            <div class="{{ classnames('main-menu__megamenu', 'main-menu__megamenu--size--'~item.submenu.size) }}">
+                                {% include '/header/megamenu.twig' with {inputs: {
+                                    megamenu: item.submenu,
+                                }} %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>

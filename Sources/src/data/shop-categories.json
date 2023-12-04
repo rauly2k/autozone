@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Headlights & Lighting",
+    "image": "images/categories/category-1.jpg",
+    "products": 131
+  },
+  {
+    "id": 2,
+    "name": "Fuel System & Filters",
+    "image": "images/categories/category-2.jpg",
+    "products": 356
+  },
+  {
+    "id": 3,
+    "name": "Body Parts & Mirrors",
+    "image": "images/categories/category-3.jpg",
+    "products": 54
+  },
+  {
+    "id": 4,
+    "name": "Interior Accessories",
+    "image": "images/categories/category-4.jpg",
+    "products": 274
+  },
+  {
+    "id": 5,
+    "name": "Tires & Wheels",
+    "image": "images/categories/category-5.jpg",
+    "products": 508
+  },
+  {
+    "id": 6,
+    "name": "Engine & Drivetrain",
+    "image": "images/categories/category-6.jpg",
+    "products": 95
+  },
+  {
+    "id": 7,
+    "name": "Oils & Lubricants",
+    "image": "images/categories/category-7.jpg",
+    "products": 179
+  },
+  {
+    "id": 8,
+    "name": "Tools & Garage",
+    "image": "images/categories/category-8.jpg",
+    "products": 106
+  }
+]

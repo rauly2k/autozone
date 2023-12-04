@@ -1,0 +1,57 @@
+{#
+// inputs:
+#}
+
+{% from '/macros/controls.twig' import input_radio %}
+
+{% set vehicles = data('account-vehicles.json') %}
+
+<div id="vehicle-picker-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="vehicle-picker-modal modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="vehicle-picker-modal__close">{{ svg('cross-12.svg') }}</button>
+            <div class="vehicle-picker-modal__panel vehicle-picker-modal__panel--active" data-panel="list">
+                <div class="vehicle-picker-modal__title card-title">Select Vehicle</div>
+
+                <div class="vehicle-picker-modal__text">
+                    Select a vehicle to find exact fit parts
+                </div>
+
+                <div class="vehicles-list">
+                    <div class="vehicles-list__body">
+                        {% for vehicle in vehicles[:2] %}
+                            <label class="vehicles-list__item">
+                                {{ input_radio({
+                                    classes: 'vehicles-list__item-radio',
+                                    name: 'header-vehicle',
+                                }) }}
+                                <span class="vehicles-list__item-info">
+                                        <span class="vehicles-list__item-name">{{ vehicle.name }}</span>
+                                        <span class="vehicles-list__item-details">{{ vehicle.details }}</span>
+                                    </span>
+                                <button type="button" class="vehicles-list__item-remove">
+                                    {{ svg('recycle-bin-16.svg') }}
+                                </button>
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="vehicle-picker-modal__actions">
+                    <button type="button" class="btn btn-sm btn-secondary vehicle-picker-modal__close-button">Cancel</button>
+                    <button type="button" class="btn btn-sm btn-primary" data-to-panel="form">Add A Vehicle</button>
+                </div>
+            </div>
+            <div class="vehicle-picker-modal__panel" data-panel="form">
+                <div class="vehicle-picker-modal__title card-title">Add A Vehicle</div>
+
+                {% include '/components/vehicle-form.twig' with {inputs: {layout: 'modal'}} %}
+
+                <div class="vehicle-picker-modal__actions">
+                    <button type="button" class="btn btn-sm btn-secondary" data-to-panel="list">Back to list</button>
+                    <button type="button" class="btn btn-sm btn-primary">Add A Vehicle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

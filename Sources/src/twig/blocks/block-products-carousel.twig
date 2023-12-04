@@ -1,0 +1,60 @@
+{#
+// inputs:
+// - title:  string - section title
+// - layout: string - one of [grid-4, grid-4-sidebar, grid-5, grid-6, horizontal, horizontal-sidebar] (default: grid-4)
+// - rows:   number - number of rows (default: 1)
+// - links:  array  - array of {title: string, url: string} (default: [])
+// - groups: array  - array of {name: string, active: boolean} (default: [])
+#}
+
+{% set title = inputs.title %}
+{% set layout = inputs.layout|default('grid-4') %}
+{% set rows = inputs.rows|default(1) %}
+{% set links = inputs.links|default([]) %}
+{% set groups = inputs.groups|default([]) %}
+
+{% set products = data('shop-products.json')[:10] %}
+
+{% set product_card_layout = {
+    'grid-4': 'grid',
+    'grid-4-sidebar': 'grid',
+    'grid-5': 'grid',
+    'grid-6': 'grid',
+    'horizontal': 'horizontal',
+    'horizontal-sidebar': 'horizontal',
+}[layout] %}
+
+{% set product_card_exclude = {
+    'grid': ['features', 'list-buttons'],
+    'horizontal': ['actions', 'status-badge', 'features', 'buttons', 'meta'],
+}[product_card_layout] %}
+
+<div class="block block-products-carousel" data-layout="{{ layout }}">
+    <div class="container">
+        {% include '/components/section-header.twig' with {inputs: {
+            title: title,
+            arrows: true,
+            links: links,
+            groups: groups,
+        }} %}
+
+        <div class="block-products-carousel__carousel">
+            <div class="block-products-carousel__carousel-loader"></div>
+            <div class="owl-carousel">
+                {% for column in products|batch(rows) %}
+                    <div class="block-products-carousel__column">
+                        {% for product in column %}
+                            <div class="block-products-carousel__cell">
+                                {% include '/components/product-card.twig' with {inputs: {
+                                    product: product,
+                                    layout: product_card_layout,
+                                    exclude: product_card_exclude,
+                                }} %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,183 @@
+{#
+// inputs:
+// - offcanvas: string - one of [none, mobile, always]
+#}
+
+{% set offcanvas = inputs.offcanvas %}
+
+{% from '/macros/controls.twig' import input_check, input_radio %}
+
+{% set filters = data('filters.json') %}
+
+{% set root_classes = classnames('widget', 'widget-filters', 'widget-filters--offcanvas--'~offcanvas) %}
+
+<div class="{{ root_classes }}" data-collapse data-collapse-opened-class="filter--opened">
+    <div class="widget__header widget-filters__header">
+        <h4>Filters</h4>
+    </div>
+
+    <div class="widget-filters__list">
+        {% for filter in filters %}
+            <div class="widget-filters__item">
+
+                <div class="filter filter--opened" data-collapse-item>
+                    <button type="button" class="filter__title" data-collapse-trigger>
+                        {{ filter.title }}
+                        <span class="filter__arrow">{{ svg('arrow-rounded-down-12x7.svg') }}</span>
+                    </button>
+                    <div class="filter__body" data-collapse-content>
+                        <div class="filter__container">
+
+                            {% if filter.type == 'categories' %}
+                                <div class="filter-categories">
+                                    <ul class="filter-categories__list">
+                                        {% for item in filter.options.items %}
+                                            <li class="filter-categories__item filter-categories__item--{{ item.type }}">
+                                                {% if item.type == 'parent' %}
+                                                    <span class="filter-categories__arrow">{{ svg('arrow-rounded-left-6x9.svg') }}</span>
+                                                {% endif %}
+                                                <a href="">{{ item.name }}</a>
+                                                <div class="filter-categories__counter">{{ item.count }}</div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+
+                            {% if filter.type in ['checkbox', 'radio'] %}
+                                <div class="filter-list">
+                                    <div class="filter-list__list">
+                                        {% for item in filter.options.items %}
+                                            <label class="filter-list__item {% if item.disabled %} filter-list__item--disabled {% endif %}">
+                                                {% if filter.type == 'checkbox' %}
+                                                    {{ input_check({
+                                                        classes: 'filter-list__input',
+                                                        checked: item.checked,
+                                                        disabled: item.disabled,
+                                                    }) }}
+                                                {% endif %}
+
+                                                {% if filter.type == 'radio' %}
+                                                    {{ input_radio({
+                                                        classes: 'filter-list__input',
+                                                        name: filter.options.name,
+                                                        checked: item.checked,
+                                                        disabled: item.disabled,
+                                                    }) }}
+                                                {% endif %}
+
+                                                <span class="filter-list__title">
+                                                    {{ item.title }}
+                                                </span>
+                                                {% if item.count %}
+                                                    <span class="filter-list__counter">{{ item.count }}</span>
+                                                {% endif %}
+                                            </label>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if filter.type == 'color' %}
+                                <div class="filter-color">
+                                    <div class="filter-color__list">
+                                        {% for item in filter.options.items %}
+                                            <label class="filter-color__item">
+                                                <span class="filter-color__check input-check-color {% if item.white %} input-check-color--white {% endif %} {% if item.light %} input-check-color--light {% endif %}" style="color: {{ item.color }};">
+                                                    <label class="input-check-color__body">
+                                                        <input class="input-check-color__input" type="checkbox" {% if item.checked %} checked {% endif %} {% if item.disabled %} disabled {% endif %}>
+                                                        <span class="input-check-color__box"></span>
+                                                        <span class="input-check-color__icon">{{ svg('check-12x9.svg') }}</span>
+                                                        <span class="input-check-color__stick"></span>
+                                                    </label>
+                                                </span>
+                                            </label>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if filter.type == 'price' %}
+                                <div class="filter-price" data-min="{{ filter.options.min }}" data-max="{{ filter.options.max }}" data-from="{{ filter.options.from }}" data-to="{{ filter.options.to }}">
+                                    <div class="filter-price__slider"></div>
+                                    <div class="filter-price__title-button">
+                                        <div class="filter-price__title">$<span class="filter-price__min-value"></span> – $<span class="filter-price__max-value"></span></div>
+                                        <button type="button" class="btn btn-xs btn-secondary filter-price__button">Filter</button>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if filter.type == 'rating' %}
+
+                                <div class="filter-rating">
+                                    <ul class="filter-rating__list">
+                                        {% for item in filter.options.items %}
+                                            <li class="filter-rating__item">
+                                                <label class="filter-rating__item-label">
+                                                    {{ input_check({
+                                                        classes: 'filter-rating__item-input',
+                                                        checked: item.checked,
+                                                        disabled: item.disabled,
+                                                    }) }}
+
+                                                    <span class="filter-rating__item-stars">
+                                                        {% include '/components/rating.twig' with {inputs: {
+                                                            rating: item.rating,
+                                                        }} %}
+                                                    </span>
+
+                                                    <span class="filter-rating__item-title sr-only">
+                                                        {{ item.title }}
+                                                    </span>
+                                                    {% if item.count %}
+                                                        <span class="filter-rating__item-counter">{{ item.count }}</span>
+                                                    {% endif %}
+                                                </label>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+
+                            {% if filter.type == 'vehicle' %}
+                                <div class="filter-vehicle">
+                                    <ul class="filter-vehicle__list">
+                                        {% for item in filter.options.items %}
+                                            <li class="filter-vehicle__item {% if item.disabled %} filter-vehicle__item--disabled {% endif %}">
+                                                <label class="filter-vehicle__item-label">
+                                                    {{ input_radio({
+                                                        classes: 'filter-list__input',
+                                                        name: filter.options.name,
+                                                        checked: item.checked,
+                                                        disabled: item.disabled,
+                                                    }) }}
+
+                                                    <span class="filter-vehicle__item-title">
+                                                        {{ item.title }}
+                                                    </span>
+                                                    {% if item.count %}
+                                                        <span class="filter-vehicle__item-counter">{{ item.count }}</span>
+                                                    {% endif %}
+                                                </label>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                    <div class="filter-vehicle__button">
+                                        <button type="button" class="btn btn-xs btn-secondary">Add Vehicle</button>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="widget-filters__actions d-flex">
+        <button class="btn btn-primary btn-sm">Filter</button>
+        <button class="btn btn-secondary btn-sm">Reset</button>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+{% set product = data('shop-products.json')[2] %}
+
+<div class="quickview modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+        <button type="button" class="quickview__close">
+            {{ svg('cross-12.svg') }}
+        </button>
+        <div class="quickview__body">
+            {% include '/components/product-gallery.twig' with {inputs: {
+                classes: 'quickview__gallery',
+                layout: 'quickview',
+            }} %}
+
+            <div class="quickview__product">
+                <div class="quickview__product-name">
+                    {{ product.name }}
+                </div>
+                <div class="quickview__product-rating">
+                    <div class="quickview__product-rating-stars">
+                        {% include '/components/rating.twig' with {inputs: {
+                            rating: product.rating,
+                        }} %}
+                    </div>
+                    <div class="quickview__product-rating-title">{{ product.reviews }} reviews</div>
+                </div>
+                <div class="quickview__product-meta">
+                    <table>
+                        <tr>
+                            <th>SKU</th>
+                            <td>201902-0057</td>
+                        </tr>
+                        <tr>
+                            <th>Brand</th>
+                            <td><a href="">Brandix</a></td>
+                        </tr>
+                        <tr>
+                            <th>Country</th>
+                            <td>Japan</td>
+                        </tr>
+                        <tr>
+                            <th>Vendor code</th>
+                            <td>BDX-750Z370-S</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="quickview__product-description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum, diam non iaculis finibus, ipsum arcu
+                    sollicitudin dolor, ut cursus sapien sem sed.
+                </div>
+                <div class="quickview__product-prices-stock">
+                    <div class="quickview__product-prices">
+                        <div class="quickview__product-price">$1,499.00</div>
+                    </div>
+                    {% include '/components/status-badge.twig' with {inputs: {
+                        classes: 'quickview__product-stock',
+                        style: 'success',
+                        text: 'In Stock',
+                    }} %}
+                </div>
+
+                {% include 'components/product-form.twig' with {inputs: {
+                    classes: 'quickview__product-form',
+                }} %}
+
+                <div class="quickview__product-actions">
+                    <div class="quickview__product-actions-item quickview__product-actions-item--quantity">
+                        <div class="input-number">
+                            <input class="input-number__input form-control" type="number" min="1" value="1">
+                            <div class="input-number__add"></div>
+                            <div class="input-number__sub"></div>
+                        </div>
+                    </div>
+                    <div class="quickview__product-actions-item quickview__product-actions-item--addtocart">
+                        <button class="btn btn-primary btn-block">Add to cart</button>
+                    </div>
+                    <div class="quickview__product-actions-item quickview__product-actions-item--wishlist">
+                        <button class="btn btn-muted btn-icon" type="button">
+                            {{ svg('wishlist-16.svg') }}
+                        </button>
+                    </div>
+                    <div class="quickview__product-actions-item quickview__product-actions-item--compare">
+                        <button class="btn btn-muted btn-icon" type="button">
+                            {{ svg('compare-16.svg') }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="" class="quickview__see-details">See full details</a>
+    </div>
+</div>

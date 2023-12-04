@@ -1,0 +1,20 @@
+[
+  {"name": "Latest News", "url": ""},
+  {
+    "name": "Special Offers",
+    "url": "",
+    "subcategories": [
+      {"name": "Spring Sales", "url": ""},
+      {"name": "Summer Sales", "url": ""},
+      {"name": "Autumn Sales", "url": ""},
+      {"name": "Christmas Sales", "url": ""},
+      {"name": "Other Sales", "url": ""}
+    ]
+  },
+  {"name": "New Arrivals", "url": ""},
+  {"name": "Reviews", "url": ""},
+  {"name": "Wheels & Tires", "url": ""},
+  {"name": "Engine & Drivetrain", "url": ""},
+  {"name": "Transmission", "url": ""},
+  {"name": "Performance", "url": ""}
+]

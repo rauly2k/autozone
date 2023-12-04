@@ -1,0 +1,51 @@
+{#
+// inputs:
+#}
+
+{% set cart = data('shop-cart.json') %}
+
+<div class="dropcart">
+    <ul class="dropcart__list">
+        {% for item in cart.items %}
+            <li class="dropcart__item">
+                <div class="dropcart__item-image image image--type--product">
+                    <a class="image__body" href="product-full.html">
+                        <img class="image__tag" src="{{ image(item.image, {size: 70}) }}" alt="">
+                    </a>
+                </div>
+                <div class="dropcart__item-info">
+                    <div class="dropcart__item-name">
+                        <a href="product-full.html">{{ item.name }}</a>
+                    </div>
+                    {% if item.options %}
+                        <ul class="dropcart__item-features">
+                            {% for option in item.options %}
+                                <li>{{ option.name }}: {{ option.value }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <div class="dropcart__item-meta">
+                        <div class="dropcart__item-quantity">{{ item.quantity }}</div>
+                        <div class="dropcart__item-price">{{ item.price|currency }}</div>
+                    </div>
+                </div>
+                <button type="button" class="dropcart__item-remove">{{ svg('cross-10.svg') }}</button>
+            </li>
+            <li class="dropcart__divider" role="presentation"></li>
+        {% endfor %}
+    </ul>
+    <div class="dropcart__totals">
+        <table>
+            {% for total in cart.totals %}
+                <tr>
+                    <th>{{ total.title }}</th>
+                    <td>{{ total.value|currency }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="dropcart__actions">
+        <a href="cart.html" class="btn btn-secondary">View Cart</a>
+        <a href="checkout.html" class="btn btn-primary">Checkout</a>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+{#
+// inputs:
+// - title:   string  - section title (default: '')
+// - classes: string  - classes to be applied to the root element (default: '')
+// - arrows:  boolean - show arrows or not (default: false)
+// - links:   array   - object of {title: string, url: string} (default: [])
+// - groups:  array   - object of {name: string, active: boolean} (default: [])
+#}
+
+{% set title = inputs.title|default('') %}
+{% set classes = inputs.classes|default('') %}
+{% set arrows = inputs.arrows|default(false) %}
+{% set links = inputs.links|default([]) %}
+{% set groups = inputs.groups|default([]) %}
+
+{% set root_classes = classnames('section-header', classes) %}
+
+<div class="{{ root_classes }}">
+    <div class="section-header__body">
+        {% if title %}
+            <h2 class="section-header__title">{{ title }}</h2>
+        {% endif %}
+
+        <div class="section-header__spring"></div>
+
+        {% if links and not groups %}
+            <ul class="section-header__links">
+                {% for link in links %}
+                    <li class="section-header__links-item">
+                        <a href="{{ link.url|escape('html_attr') }}" class="section-header__links-link">{{ link.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if groups %}
+            <ul class="section-header__groups">
+                {% for group in groups %}
+                    {% set button_classes = classnames('section-header__groups-button', {
+                        'section-header__groups-button--active': group.active,
+                    }) %}
+
+                    <li class="section-header__groups-item">
+                        <button type="button" class="{{ button_classes }}">{{ group.title }}</button>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if arrows %}
+            <div class="section-header__arrows">
+                {% include '/components/arrow.twig' with {inputs: {
+                    classes: 'section-header__arrow section-header__arrow--prev',
+                    direction: 'prev',
+                }} %}
+                {% include '/components/arrow.twig' with {inputs: {
+                    classes: 'section-header__arrow section-header__arrow--next',
+                    direction: 'next',
+                }} %}
+            </div>
+        {% endif %}
+
+        <div class="section-header__divider"></div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{% set global_page_title = 'Shop Grid 5 Columns Full — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/components/shop-page.twig' with {inputs: {
+        layout: 'grid',
+        grid: 'grid-5-full',
+        sidebar: 'left',
+    }} %}
+{% endblock %}

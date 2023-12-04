@@ -1,0 +1,22 @@
+{#
+// inputs:
+// - classes: string - CSS classes
+// - rating:  number - rating value
+#}
+
+{% set classes = inputs.classes %}
+{% set rating = inputs.rating %}
+
+{% set root_classes = classnames('rating', classes) %}
+
+<div class="{{ root_classes }}">
+    <div class="rating__body">
+        {% for i in 1..5 %}
+            {% set star_classes = classnames('rating__star', {
+                'rating__star--active': rating >= i
+            }) %}
+
+            <div class="{{ star_classes }}"></div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{#
+// inputs:
+// - classes: string - CSS classes to be applied to the root element (default: '')
+// - items:   array  - Array of breadcrumb items (default: [])
+#}
+
+{% set classes = inputs.classes|default('') %}
+{% set items = inputs.items|default([]) %}
+
+{% set root_classes = classnames('breadcrumb', classes) %}
+
+<nav class="{{ root_classes }}" aria-label="breadcrumb">
+    <ol class="breadcrumb__list">
+        <li class="breadcrumb__spaceship-safe-area" role="presentation"></li>
+        {% for item in items %}
+            {% set item_classes = classnames('breadcrumb__item', {
+                'breadcrumb__item--first': loop.first,
+                'breadcrumb__item--last': loop.last,
+                'breadcrumb__item--parent': not loop.last,
+                'breadcrumb__item--current': loop.last
+            }) %}
+
+            <li class="{{ item_classes }}"{% if loop.last %} aria-current="page"{% endif %}>
+                {% if loop.last %}
+                    <span class="breadcrumb__item-link">{{ item.title }}</span>
+                {% else %}
+                    <a href="{{ item.url }}" class="breadcrumb__item-link">{{ item.title }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+        {% if title %}
+            <li class="breadcrumb__title-safe-area" role="presentation"></li>
+        {% endif %}
+    </ol>
+</nav>

@@ -1,0 +1,153 @@
+{% set global_page_title = 'Compare — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% set products = data('shop-products.json')[:5] %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/blocks/block-header.twig' with {inputs: {
+        title: 'Compare',
+    }} %}
+
+    <div class="block">
+        <div class="container">
+            <div class="compare card">
+                <div class="compare__options-list">
+                    <div class="compare__option">
+                        <div class="compare__option-label">Show:</div>
+                        <div class="compare__option-control">
+                            <div class="button-toggle">
+                                <div class="button-toggle__list">
+                                    <label class="button-toggle__item">
+                                        <input type="radio" class="button-toggle__input" name="compare-filter" checked>
+                                        <span class="button-toggle__button">All</span>
+                                    </label>
+                                    <label class="button-toggle__item">
+                                        <input type="radio" class="button-toggle__input" name="compare-filter">
+                                        <span class="button-toggle__button">Different</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="compare__option">
+                        <div class="compare__option-control">
+                            <button type="button" class="btn btn-secondary btn-xs">Clear list</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="compare__table compare-table">
+                        <tbody>
+                        <tr class="compare-table__row">
+                            <th class="compare-table__column compare-table__column--header">Product</th>
+                            {% for product in products %}
+                                <td class="compare-table__column compare-table__column--product">
+                                    <a href="product-full.html" class="compare-table__product">
+                                        <div class="compare-table__product-image image image--type--product">
+                                            <div class="image__body">
+                                                <img class="image__tag" src="{{ image(product.images[0], {size: 150}) }}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="compare-table__product-name">
+                                            {{ product.name }}
+                                        </div>
+                                    </a>
+                                </td>
+                            {% endfor %}
+                            <td class="compare-table__column compare-table__column--fake"></td>
+                        </tr>
+                        <tr class="compare-table__row">
+                            <th class="compare-table__column compare-table__column--header">Rating</th>
+                            {% for product in products %}
+                                <td class="compare-table__column compare-table__column--product">
+                                    <div class="compare-table__rating">
+                                        <div class="compare-table__rating-stars">
+                                            {% include '/components/rating.twig' with {inputs: {
+                                                rating: product.rating,
+                                            }} %}
+                                        </div>
+                                        <div class="compare-table__rating-title">Based on {{ product.reviews }} reviews</div>
+                                    </div>
+                                </td>
+                            {% endfor %}
+                            <td class="compare-table__column compare-table__column--fake"></td>
+                        </tr>
+                        <tr class="compare-table__row">
+                            <th class="compare-table__column compare-table__column--header">Availability</th>
+                            {% for product in products %}
+                                <td class="compare-table__column compare-table__column--product">
+                                    {% include '/components/status-badge.twig' with {inputs: {
+                                        style: 'success',
+                                        text: 'In Stock',
+                                    }} %}
+                                </td>
+                            {% endfor %}
+                            <td class="compare-table__column compare-table__column--fake"></td>
+                        </tr>
+                        <tr class="compare-table__row">
+                            <th class="compare-table__column compare-table__column--header">Price</th>
+                            {% for product in products %}
+                                <td class="compare-table__column compare-table__column--product">
+                                    {{ product.price|currency }}
+                                </td>
+                            {% endfor %}
+                            <td class="compare-table__column compare-table__column--fake"></td>
+                        </tr>
+                        <tr class="compare-table__row">
+                            <th class="compare-table__column compare-table__column--header">Add to cart</th>
+                            {% for product in products %}
+                                <td class="compare-table__column compare-table__column--product">
+                                    <button type="button" class="btn btn-sm btn-primary">Add to cart</button>
+                                </td>
+                            {% endfor %}
+                            <td class="compare-table__column compare-table__column--fake"></td>
+                        </tr>
+                        <tr class="compare-table__row">
+                            <th class="compare-table__column compare-table__column--header">SKU</th>
+                            {% for product in products %}
+                                <td class="compare-table__column compare-table__column--product">{{ product.sku }}</td>
+                            {% endfor %}
+                            <td class="compare-table__column compare-table__column--fake"></td>
+                        </tr>
+                        <tr class="compare-table__row">
+                            <th class="compare-table__column compare-table__column--header">Weight</th>
+                            {% for product in products %}
+                                <td class="compare-table__column compare-table__column--product">{{ product.features.weight }}</td>
+                            {% endfor %}
+                            <td class="compare-table__column compare-table__column--fake"></td>
+                        </tr>
+                        <tr class="compare-table__row">
+                            <th class="compare-table__column compare-table__column--header">Color</th>
+                            {% for product in products %}
+                                <td class="compare-table__column compare-table__column--product">{{ product.features.color }}</td>
+                            {% endfor %}
+                            <td class="compare-table__column compare-table__column--fake"></td>
+                        </tr>
+                        <tr class="compare-table__row">
+                            <th class="compare-table__column compare-table__column--header">Material</th>
+                            {% for product in products %}
+                                <td class="compare-table__column compare-table__column--product">{{ product.features.material }}</td>
+                            {% endfor %}
+                            <td class="compare-table__column compare-table__column--fake"></td>
+                        </tr>
+                        <tr class="compare-table__row">
+                            <th class="compare-table__column compare-table__column--header"></th>
+                            {% for product in products %}
+                                <td class="compare-table__column compare-table__column--product">
+                                    <button type="button" class="btn btn-sm btn-secondary">Remove</button>
+                                </td>
+                            {% endfor %}
+                            <td class="compare-table__column compare-table__column--fake"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'before-footer'}} %}
+{% endblock %}

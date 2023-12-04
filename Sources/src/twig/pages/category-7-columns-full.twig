@@ -1,0 +1,12 @@
+{% set global_page_title = 'Category 7 Columns Full — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/components/category-page.twig' with {inputs: {
+        layout: 'columns-7-full',
+    }} %}
+{% endblock %}
+
+

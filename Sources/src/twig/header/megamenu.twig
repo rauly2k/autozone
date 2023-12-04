@@ -1,0 +1,42 @@
+{#
+// inputs:
+// - megamenu: object - megamenu data
+// - classes:  string - list of CSS classes
+#}
+
+{% set megamenu = inputs.megamenu %}
+{% set classes = inputs.classes %}
+
+{% set root_classes = classnames('megamenu', classes) %}
+
+<div class="{{ root_classes }}">
+    {% if megamenu.image %}
+        <div class="megamenu__image">
+            <img src="{{ megamenu.image }}" alt="">
+        </div>
+    {% endif %}
+    <div class="row">
+        {% for column in megamenu.columns %}
+            <div class="{{ 'col-'~column.size }}">
+                {% for item in column.items %}
+                    {% if item.type == 'links' %}
+                        <ul class="megamenu__links megamenu-links megamenu-links--root">
+                            {% for link in item.links %}
+                                <li class="{{ classnames('megamenu-links__item', {'megamenu-links__item--has-submenu': link.links}) }}">
+                                    <a class="megamenu-links__item-link" href="">{{ link.title }}</a>
+                                    {% if link.links %}
+                                        <ul class="megamenu-links">
+                                            {% for sublink in link.links %}
+                                                <li class="megamenu-links__item"><a class="megamenu-links__item-link" href="">{{ sublink.title }}</a></li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

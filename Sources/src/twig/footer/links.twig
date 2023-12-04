@@ -1,0 +1,17 @@
+{#
+// inputs:
+// - title: string - links title
+// - links: array  - array of {title: '', url: ''}
+#}
+
+{% set title = inputs.title %}
+{% set links = inputs.links %}
+
+<div class="site-footer__widget footer-links">
+    <h5 class="footer-links__title">{{ title }}</h5>
+    <ul class="footer-links__list">
+        {% for link in links %}
+            <li class="footer-links__item"><a href="{{ link.url }}" class="footer-links__link">{{ link.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,33 @@
+{#
+// inputs:
+// - title:      string - page title
+// - breadcrumb: array  - array of breadcrumb items (default: see below)
+#}
+
+{% set title = inputs.title %}
+{% set breadcrumb = inputs.breadcrumb|default([
+    {title: 'Home', url: 'index.html'},
+    {title: 'Breadcrumb', url: ''},
+    {title: 'Current Page', url: ''},
+]) %}
+
+{% set root_classes = classnames('block-header', {
+    'block-header--has-title': title,
+    'block-header--has-breadcrumb': breadcrumb,
+}) %}
+
+<div class="{{ root_classes }}">
+    <div class="container">
+        <div class="block-header__body">
+            {% if breadcrumb %}
+                {% include '/components/breadcrumb.twig' with {inputs: {
+                    classes: 'block-header__breadcrumb',
+                    items: breadcrumb,
+                }} %}
+            {% endif %}
+            {% if title %}
+                <h1 class="block-header__title">{{ title }}</h1>
+            {% endif %}
+        </div>
+    </div>
+</div>

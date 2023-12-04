@@ -1,0 +1,52 @@
+{% set global_page_title = 'Account Garage — Red Parts' %}
+{% set global_page_description = '' %}
+{% set global_current_account_page = 'account-garage.html' %}
+
+{% set vehicles = data('account-vehicles.json') %}
+
+{% extends '/layouts/account.twig' %}
+
+{% block account_body %}
+    <div class="card">
+        <div class="card-header">
+            <h5>Garage</h5>
+        </div>
+        <div class="card-divider"></div>
+
+        <div class="card-body card-body--padding--2">
+            <div class="vehicles-list vehicles-list--layout--account">
+                <div class="vehicles-list__body">
+                    {% for vehicle in vehicles %}
+                        <div class="vehicles-list__item">
+                            <div class="vehicles-list__item-info">
+                                <div class="vehicles-list__item-name">{{ vehicle.name }}</div>
+                                <div class="vehicles-list__item-details">{{ vehicle.details }}</div>
+                                <div class="vehicles-list__item-links">
+                                    <a href="">Show Parts</a>
+                                </div>
+                            </div>
+                            <button type="button" class="vehicles-list__item-remove">
+                                {{ svg('recycle-bin-16.svg') }}
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="card-divider"></div>
+        <div class="card-header">
+            <h5>Add A Vehicle</h5>
+        </div>
+        <div class="card-divider"></div>
+
+        <div class="card-body card-body--padding--2">
+            {% include '/components/vehicle-form.twig' with {inputs: {layout: 'account'}} %}
+
+            <div class="mt-4 pt-3">
+                <a href="" class="btn btn-sm btn-primary">Add A Vehicle</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

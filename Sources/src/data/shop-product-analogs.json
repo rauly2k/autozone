@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Sunset Brake Kit",
+    "sku": "SSX-780B390-S",
+    "rating": 4,
+    "reviews": 10,
+    "vendor": "Sunset",
+    "country": "Germany",
+    "price": 1259
+  },
+  {
+    "name": "Specter Brake Kit",
+    "sku": "SCT-123A380-S",
+    "rating": 5,
+    "reviews": 34,
+    "vendor": "Specter",
+    "country": "China",
+    "price": 799
+  },
+  {
+    "name": "Brake Kit",
+    "sku": "NNO-120K643-S",
+    "rating": 3,
+    "reviews": 7,
+    "vendor": "No Name",
+    "country": "China",
+    "price": 569
+  }
+]

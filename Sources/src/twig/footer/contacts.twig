@@ -1,0 +1,41 @@
+{#
+// inputs:
+#}
+
+{% set theme = data('theme.json') %}
+
+<div class="site-footer__widget footer-contacts">
+    <h5 class="footer-contacts__title">Contact Us</h5>
+
+    <div class="footer-contacts__text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing
+        elit. Integer in feugiat lorem.
+    </div>
+
+    <address class="footer-contacts__contacts">
+        <dl>
+            <dt>Phone Number</dt>
+            {% for item in theme.contacts.phone %}
+                <dd>{{ item }}</dd>
+            {% endfor %}
+        </dl>
+        <dl>
+            <dt>Email Address</dt>
+            {% for item in theme.contacts.email %}
+                <dd>{{ item }}</dd>
+            {% endfor %}
+        </dl>
+        <dl>
+            <dt>Our Location</dt>
+            {% for item in theme.contacts.address %}
+                <dd>{{ item }}</dd>
+            {% endfor %}
+        </dl>
+        <dl>
+            <dt>Working Hours</dt>
+            {% for item in theme.contacts.hours %}
+                <dd>{{ item }}</dd>
+            {% endfor %}
+        </dl>
+    </address>
+</div>

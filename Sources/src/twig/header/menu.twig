@@ -1,0 +1,32 @@
+{#
+// inputs:
+// - menu: array - array of menu items
+#}
+
+{% set menu = inputs.menu %}
+
+<ul class="menu">
+    {% for item in menu %}
+        {% set item_classes = classnames('menu__item', {
+            'menu__item--has-submenu': item.submenu,
+        }) %}
+
+        <li class="{{ item_classes }}">
+            <a href="{{ item.url }}" class="menu__link">
+                {{ item.title }}
+                {% if item.submenu %}
+                    <span class="menu__arrow">
+                        {{ svg('arrow-rounded-right-6x9.svg') }}
+                    </span>
+                {% endif %}
+            </a>
+            {% if item.submenu %}
+                <div class="menu__submenu">
+                    {% include '/header/menu.twig' with {inputs: {
+                        menu: item.submenu,
+                    }} %}
+                </div>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

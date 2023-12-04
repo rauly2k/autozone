@@ -1,0 +1,13 @@
+{% set global_page_title = 'Blog List Right Sidebar — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% set posts = data('blog-posts.json') %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/components/blog-page.twig' with {inputs: {
+        layout: 'list',
+        sidebar: 'right',
+    }} %}
+{% endblock %}

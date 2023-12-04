@@ -1,0 +1,14 @@
+{#
+// inputs:
+// - direction: string - one of [prev, next] (default: 'prev')
+// - classes:   string - classes to be applied to the root element (default: '')
+#}
+
+{% set direction = inputs.direction|default('prev') %}
+{% set classes = inputs.classes|default('') %}
+
+{% set root_classes = classnames('arrow', classes, 'arrow--'~direction) %}
+
+<div class="{{ root_classes }}">
+    <button class="arrow__button" type="button">{{ direction == 'prev' ? svg('arrow-rounded-left-7x11.svg') : svg('arrow-rounded-right-7x11.svg') }}</button>
+</div>

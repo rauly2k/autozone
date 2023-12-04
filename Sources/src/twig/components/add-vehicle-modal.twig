@@ -1,0 +1,21 @@
+{#
+// inputs:
+#}
+
+<div id="add-vehicle-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="vehicle-picker-modal modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="vehicle-picker-modal__close">{{ svg('cross-12.svg') }}</button>
+            <div class="vehicle-picker-modal__panel vehicle-picker-modal__panel--active">
+                <div class="vehicle-picker-modal__title card-title">Add A Vehicle</div>
+
+                {% include '/components/vehicle-form.twig' with {inputs: {layout: 'modal'}} %}
+
+                <div class="vehicle-picker-modal__actions">
+                    <button type="button" class="btn btn-sm btn-secondary vehicle-picker-modal__close-button">Cancel</button>
+                    <button type="button" class="btn btn-sm btn-primary">Add A Vehicle</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

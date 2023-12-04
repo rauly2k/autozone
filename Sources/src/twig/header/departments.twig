@@ -1,0 +1,46 @@
+{#
+// inputs:
+#}
+
+{% set departments = data('header-departments.json') %}
+
+<div class="departments">
+    <button class="departments__button" type="button">
+        <span class="departments__button-icon">{{ svg('menu-16x12.svg') }}</span>
+        <span class="departments__button-title">{{ global_header_layout == 'spaceship' ? 'Menu' : 'Shop By Category' }}</span>
+        <span class="departments__button-arrow">{{ svg('arrow-rounded-down-9x6.svg') }}</span>
+    </button>
+    <div class="departments__menu">
+        <div class="departments__arrow"></div>
+        <div class="departments__body">
+            <ul class="departments__list">
+                <li class="departments__list-padding" role="presentation"></li>
+                {% for department in departments %}
+                    {% set classes = classnames('departments__item',{
+                        'departments__item--has-submenu': department.submenu,
+                        'departments__item--submenu--megamenu': department.submenu.type == 'megamenu'
+                    }) %}
+
+                    <li class="{{ classes }}">
+                        <a href="" class="departments__item-link">
+                            {{ department.title }}
+                            {% if department.submenu %}
+                                <span class="departments__item-arrow">{{ svg('arrow-rounded-right-7x11.svg') }}</span>
+                            {% endif %}
+                        </a>
+                        {% if department.submenu %}
+                            <div class="departments__item-menu">
+                                {% include '/header/megamenu.twig' with {inputs: {
+                                    megamenu: department.submenu,
+                                    classes: classnames('departments__megamenu', 'departments__megamenu--size--'~department.submenu.size),
+                                }} %}
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+                <li class="departments__list-padding" role="presentation"></li>
+            </ul>
+            <div class="departments__menu-container"></div>
+        </div>
+    </div>
+</div>

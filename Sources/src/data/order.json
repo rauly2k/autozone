@@ -1,0 +1,67 @@
+{
+  "number": 9478,
+  "status": "Pending",
+  "createdAt": "Oct 19, 2020",
+  "payment": "PayPal",
+  "items": [
+    {
+      "product": {
+        "name": "Brandix Spark Plug Kit ASR-400",
+        "images": [
+          "images/products/product-1.jpg"
+        ]
+      },
+      "options": [
+        {
+          "name": "Color",
+          "value": "True Red"
+        },
+        {
+          "name": "Material",
+          "value": "Aluminium"
+        }
+      ],
+      "price": 19,
+      "quantity": 2
+    },
+    {
+      "product": {
+        "name": "Brandix Brake Kit BDX-750Z370-S",
+        "images": [
+          "images/products/product-2.jpg"
+        ]
+      },
+      "options": [],
+      "price": 224,
+      "quantity": 1
+    },
+    {
+      "product": {
+        "name": "Left Headlight Of Brandix Z54",
+        "images": [
+          "images/products/product-3.jpg"
+        ]
+      },
+      "options": [
+        {
+          "name": "Color",
+          "value": "Green"
+        }
+      ],
+      "price": 349,
+      "quantity": 3
+    }
+  ],
+  "subtotal": 1309,
+  "totals": [
+    {
+      "title": "Shipping",
+      "price": 25
+    },
+    {
+      "title": "Tax",
+      "price": 262
+    }
+  ],
+  "total": 1596
+}

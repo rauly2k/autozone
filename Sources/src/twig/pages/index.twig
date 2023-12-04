@@ -1,0 +1,107 @@
+{% set global_header_scheme = {
+    topbar_start_scheme: 'theme',
+    topbar_end_scheme:   'dark',
+} %}
+{% set global_page_title = 'Home One — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/blocks/block-finder.twig' %}
+    {% include '/blocks/block-features.twig' with {inputs: {layout: 'top-strip'}} %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-products-carousel.twig' with {inputs: {
+        title: 'Featured Products',
+        layout: 'grid-5',
+        rows: 1,
+        groups: [
+            {title: 'All', active: true},
+            {title: 'Power Tools', active: false},
+            {title: 'Hand Tools', active: false},
+            {title: 'Plumbing', active: false},
+        ],
+    }} %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-sale.twig' %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-lg'}} %}
+    {% include '/blocks/block-zone.twig' with {inputs: {
+        category: {
+            image: 'images/categories/category-overlay-1.jpg',
+            image_mobile: 'images/categories/category-overlay-1-mobile.jpg',
+            name: 'Wheels & Tires',
+            children: [
+                'Wheel Covers',
+                'Brake Kits',
+                'Tire Chains',
+                'Wheel disks',
+                'Tires',
+                'Sensors',
+                'Accessories',
+            ]
+        }
+    }} %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-sm'}} %}
+    {% include '/blocks/block-zone.twig' with {inputs: {
+        category: {
+            image: 'images/categories/category-overlay-2.jpg',
+            image_mobile: 'images/categories/category-overlay-2-mobile.jpg',
+            name: 'Interior Parts',
+            children: [
+                'Dashboards',
+                'Seat Covers',
+                'Floor Mats',
+                'Sun Shades',
+                'Visors',
+                'Car Covers',
+                'Accessories',
+            ]
+        }
+    }} %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-sm'}} %}
+    {% include '/blocks/block-zone.twig' with {inputs: {
+        category: {
+            image: 'images/categories/category-overlay-3.jpg',
+            image_mobile: 'images/categories/category-overlay-3-mobile.jpg',
+            name: 'Engine & Drivetrain',
+            children: [
+                'Timing Belts',
+                'Spark Plugs',
+                'Oil Pans',
+                'Engine Gaskets',
+                'Oil Filters',
+                'Engine Mounts',
+                'Accessories',
+            ]
+        }
+    }} %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-banners.twig' %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-products-carousel.twig' with {inputs: {
+        title: 'New Arrivals',
+        layout: 'horizontal',
+        rows: 2,
+        links: [
+            {title: 'Wheel Covers', url: ''},
+            {title: 'Timing Belts', url: ''},
+            {title: 'Oil Pans', url: ''},
+            {title: 'Show All', url: ''},
+        ],
+    }} %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-posts-carousel.twig' with {inputs: {
+        title: 'Latest News',
+        layout: 'grid',
+        links: [
+            {title: 'Special Offers', url: ''},
+            {title: 'New Arrivals', url: ''},
+            {title: 'Reviews', url: ''},
+        ],
+    }} %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl'}} %}
+    {% include '/blocks/block-brands.twig' %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'divider-nl', classes: 'd-xl-block d-none'}} %}
+    {% include '/blocks/block-products-columns.twig' %}
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'before-footer'}} %}
+{% endblock %}

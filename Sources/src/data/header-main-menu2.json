@@ -1,0 +1,304 @@
+[
+  {
+    "title": "Home",
+    "url": "index.html",
+    "submenu": {
+      "type": "menu",
+      "links": [
+        {"title": "Home One"},
+        {"title": "Home Two"}
+      ]
+    }
+  },
+  {
+    "title": "XXL",
+    "url": "shop-grid.html",
+    "submenu": {
+      "type": "megamenu",
+      "size": "xxl",
+      "columns": [
+        {
+          "size": 2,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 2,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 2,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 2,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 2,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 2,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "XL",
+    "url": "shop-grid.html",
+    "submenu": {
+      "type": "megamenu",
+      "size": "xl",
+      "columns": [
+        {
+          "size": "1of5",
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": "1of5",
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": "1of5",
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": "1of5",
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": "1of5",
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "LG",
+    "url": "shop-grid.html",
+    "submenu": {
+      "type": "megamenu",
+      "size": "lg",
+      "columns": [
+        {
+          "size": 3,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 3,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 3,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 3,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "MD",
+    "url": "shop-grid.html",
+    "submenu": {
+      "type": "megamenu",
+      "size": "md",
+      "columns": [
+        {
+          "size": 4,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 4,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 4,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "NL",
+    "url": "shop-grid.html",
+    "submenu": {
+      "type": "megamenu",
+      "size": "nl",
+      "columns": [
+        {
+          "size": 6,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 6,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "SM",
+    "url": "shop-grid.html",
+    "submenu": {
+      "type": "megamenu",
+      "size": "sm",
+      "columns": [
+        {
+          "size": 12,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {"title": "Power Tools"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,247 @@
+[
+  {
+    "title": "Home",
+    "url": "index.html",
+    "submenu": {
+      "type": "menu",
+      "links": [
+        {"title": "Home One", "url": "index.html"},
+        {"title": "Home Two", "url": "index2.html"},
+        {
+          "title": "Header Spaceship",
+          "url": "header-spaceship-variant-one.html",
+          "submenu": [
+            {"title": "Variant One", "url": "header-spaceship-variant-one.html"},
+            {"title": "Variant Two", "url": "header-spaceship-variant-two.html"},
+            {"title": "Variant Three", "url": "header-spaceship-variant-three.html"}
+          ]
+        },
+        {
+          "title": "Header Classic",
+          "url": "header-classic-variant-one.html",
+          "submenu": [
+            {"title": "Variant One", "url": "header-classic-variant-one.html"},
+            {"title": "Variant Two", "url": "header-classic-variant-two.html"},
+            {"title": "Variant Three", "url": "header-classic-variant-three.html"},
+            {"title": "Variant Four", "url": "header-classic-variant-four.html"},
+            {"title": "Variant Five", "url": "header-classic-variant-five.html"}
+          ]
+        },
+        {
+          "title": "Mobile Header",
+          "url": "mobile-header-variant-one.html",
+          "submenu": [
+            {"title": "Variant One", "url": "mobile-header-variant-one.html"},
+            {"title": "Variant Two", "url": "mobile-header-variant-two.html"}
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "Megamenu",
+    "url": "index.html",
+    "submenu": {
+      "type": "megamenu",
+      "size": "nl",
+      "columns": [
+        {
+          "size": 6,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Headlights & Lighting",
+                  "links": [
+                    {"title": "Headlights"},
+                    {"title": "Tail Lights"},
+                    {"title": "Fog Lights"},
+                    {"title": "Turn Signals"},
+                    {"title": "Switches & Relays"},
+                    {"title": "Corner Lights"}
+                  ]
+                },
+                {
+                  "title": "Brakes & Suspension",
+                  "links": [
+                    {"title": "Brake Discs"},
+                    {"title": "Wheel Hubs"},
+                    {"title": "Air Suspension"},
+                    {"title": "Ball Joints"}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "size": 6,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Interior Parts",
+                  "links": [
+                    {"title": "Floor Mats"},
+                    {"title": "Gauges"},
+                    {"title": "Consoles & Organizers"},
+                    {"title": "Mobile Electronics"}
+                  ]
+                },
+                {
+                  "title": "Engine & Drivetrain",
+                  "links": [
+                    {"title": "Air Filters"},
+                    {"title": "Oxygen Sensors"},
+                    {"title": "Heating"},
+                    {"title": "Exhaust"},
+                    {"title": "Cranks & Pistons"},
+                    {"title": "Cargo Accessories"}
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "ignore_in": ["spaceship"]
+  },
+  {
+    "title": "Shop",
+    "url": "shop-grid-4-columns-sidebar.html",
+    "submenu": {
+      "type": "menu",
+      "links": [
+        {
+          "title": "Category",
+          "url": "category-4-columns-sidebar.html",
+          "submenu": [
+            {"title": "3 Columns Sidebar", "url": "category-3-columns-sidebar.html"},
+            {"title": "4 Columns Sidebar", "url": "category-4-columns-sidebar.html"},
+            {"title": "5 Columns Sidebar", "url": "category-5-columns-sidebar.html"},
+            {"title": "4 Columns Full", "url": "category-4-columns-full.html"},
+            {"title": "5 Columns Full", "url": "category-5-columns-full.html"},
+            {"title": "6 Columns Full", "url": "category-6-columns-full.html"},
+            {"title": "7 Columns Full", "url": "category-7-columns-full.html"},
+            {"title": "Right Sidebar", "url": "category-right-sidebar.html"}
+          ]
+        },
+        {
+          "title": "Shop Grid",
+          "url": "shop-grid-4-columns-sidebar.html",
+          "submenu": [
+            {"title": "6 Columns Full", "url": "shop-grid-6-columns-full.html"},
+            {"title": "5 Columns Full", "url": "shop-grid-5-columns-full.html"},
+            {"title": "4 Columns Full", "url": "shop-grid-4-columns-full.html"},
+            {"title": "4 Columns Sidebar", "url": "shop-grid-4-columns-sidebar.html"},
+            {"title": "3 Columns Sidebar", "url": "shop-grid-3-columns-sidebar.html"}
+          ]
+        },
+        {"title": "Shop List", "url": "shop-list.html"},
+        {"title": "Shop Table", "url": "shop-table.html"},
+        {"title": "Shop Right Sidebar", "url": "shop-right-sidebar.html"},
+        {
+          "title": "Product",
+          "url": "product-full.html",
+          "submenu": [
+            {"title": "Full Width", "url": "product-full.html"},
+            {"title": "Left Sidebar", "url": "product-sidebar.html"}
+          ]
+        },
+        {"title": "Cart", "url": "cart.html"},
+        {"title": "Checkout", "url": "checkout.html"},
+        {"title": "Order Success", "url": "order-success.html"},
+        {"title": "Wishlist", "url": "wishlist.html"},
+        {"title": "Compare", "url": "compare.html"},
+        {"title": "Track Order", "url": "track-order.html"}
+      ]
+    }
+  },
+  {
+    "title": "Blog",
+    "url": "blog-classic-right-sidebar.html",
+    "submenu": {
+      "type": "menu",
+      "links": [
+        {
+          "title": "Blog Classic",
+          "url": "blog-classic-right-sidebar.html",
+          "submenu": [
+            {"title": "Left Sidebar", "url": "blog-classic-left-sidebar.html"},
+            {"title": "Right Sidebar", "url": "blog-classic-right-sidebar.html"}
+          ]
+        },
+        {
+          "title": "Blog List",
+          "url": "blog-list-right-sidebar.html",
+          "submenu": [
+            {"title": "Left Sidebar", "url": "blog-list-left-sidebar.html"},
+            {"title": "Right Sidebar", "url": "blog-list-right-sidebar.html"}
+          ]
+        },
+        {
+          "title": "Blog Grid",
+          "url": "blog-grid-right-sidebar.html",
+          "submenu": [
+            {"title": "Left Sidebar", "url": "blog-grid-left-sidebar.html"},
+            {"title": "Right Sidebar", "url": "blog-grid-right-sidebar.html"}
+          ]
+        },
+        {
+          "title": "Post Page",
+          "url": "post-full-width.html",
+          "submenu": [
+            {"title": "Full Width", "url": "post-full-width.html"},
+            {"title": "Left Sidebar", "url": "post-left-sidebar.html"},
+            {"title": "Right Sidebar", "url": "post-right-sidebar.html"}
+          ]
+        },
+        {"title": "Post Without Image", "url": "post-without-image.html"}
+      ]
+    }
+  },
+  {
+    "title": "Account",
+    "url": "account-login.html",
+    "submenu": {
+      "type": "menu",
+      "links": [
+        {"title": "Login & Register", "url": "account-login.html"},
+        {"title": "Dashboard", "url": "account-dashboard.html"},
+        {"title": "Garage", "url": "account-garage.html"},
+        {"title": "Edit Profile", "url": "account-profile.html"},
+        {"title": "Order History", "url": "account-orders.html"},
+        {"title": "Order Details", "url": "account-order-details.html"},
+        {"title": "Address Book", "url": "account-addresses.html"},
+        {"title": "Edit Address", "url": "account-edit-address.html"},
+        {"title": "Change Password", "url": "account-password.html"}
+      ]
+    }
+  },
+  {
+    "title": "Pages",
+    "url": "about-us.html",
+    "submenu": {
+      "type": "menu",
+      "links": [
+        {"title": "About Us", "url": "about-us.html"},
+        {"title": "Contact Us v1", "url": "contact-us-v1.html"},
+        {"title": "Contact Us v2", "url": "contact-us-v2.html"},
+        {"title": "404", "url": "404.html"},
+        {"title": "Terms And Conditions", "url": "terms.html"},
+        {"title": "FAQ", "url": "faq.html"},
+        {"title": "Components", "url": "components.html"},
+        {"title": "Typography", "url": "typography.html"}
+      ]
+    }
+  },
+  {
+    "title": "Buy Theme",
+    "url": "https://themeforest.net/item/redparts-auto-parts-html-template/24735474",
+    "external": true,
+    "ignore_in": ["spaceship"]
+  }
+]

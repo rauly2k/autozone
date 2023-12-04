@@ -1,0 +1,50 @@
+{#
+// inputs:
+#}
+
+{% set categories = data('shop-widget-categories-list.json') %}
+
+<div class="card widget widget-categories-list">
+    <div class="widget-categories-list__body" data-collapse data-collapse-opened-class="widget-categories-list--open">
+        <ul class="widget-categories-list__root">
+            {% for category in categories %}
+                <li class="{{ classnames('widget-categories-list__root-item', {'widget-categories-list__root-item--has-children': category.subcategories}) }}" data-collapse-item>
+                    <a href="{{ category.url }}" class="widget-categories-list__root-link">{{ category.name }}</a>
+
+                    {% if category.subcategories %}
+                        {% if category.subcategories|length == 6 %}
+                            {% set short_subs = category.subcategories[:6] %}
+                            {% set other_subs = category.subcategories[6:] %}
+                        {% else %}
+                            {% set short_subs = category.subcategories[:5] %}
+                            {% set other_subs = category.subcategories[5:] %}
+                        {% endif %}
+
+                        <ul class="widget-categories-list__child">
+                            {% for sub in short_subs %}
+                                <li class="widget-categories-list__child-item">
+                                    <a href="{{ sub.url }}" class="widget-categories-list__child-link">{{ sub.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                        {% if other_subs %}
+                            <ul class="widget-categories-list__child" data-collapse-content>
+                                {% for sub in other_subs %}
+                                    <li class="widget-categories-list__child-item">
+                                        <a href="{{ sub.url }}" class="widget-categories-list__child-link">{{ sub.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <button type="button" class="widget-categories-list__show-more" data-collapse-trigger>
+                                <span class="widget-categories-list__show-more-expand-text">Show More</span>
+                                <span class="widget-categories-list__show-more-collapse-text">Show Less</span>
+                                <span class="widget-categories-list__show-more-arrow">{{ svg('arrow-down-9x6.svg') }}</span>
+                            </button>
+                        {% endif %}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

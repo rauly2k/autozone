@@ -1,0 +1,38 @@
+{#
+// inputs:
+// - classes: string - CSS classes
+// - style:   string - one of [success, failure, warning, unknown]
+// - icon:    string - one of [success, failure]
+// - text:    string - status text
+// - tooltip: string - tooltip text
+#}
+
+{% set classes = inputs.classes %}
+{% set style = inputs.style %}
+{% set icon = inputs.icon %}
+{% set text = inputs.text %}
+{% set tooltip = inputs.tooltip %}
+
+{% set icon = icon ? {
+    'success': 'fit',
+    'failure': 'no-fit'
+}[icon] : null %}
+
+{% set root_classes = classnames('status-badge', 'status-badge--style--'~style, classes, {
+    'status-badge--has-text': text,
+    'status-badge--has-icon': icon
+}) %}
+
+<div class="{{ root_classes }}">
+    <div class="status-badge__body">
+        {% if icon %}
+            <div class="status-badge__icon">{{ svg(icon~'.svg') }}</div>
+        {% endif %}
+        {% if text %}
+            <div class="status-badge__text">{{ text }}</div>
+        {% endif %}
+        {% if tooltip %}
+            <div class="status-badge__tooltip" tabindex="0" data-toggle="tooltip" title="{{ tooltip|escape('html_attr') }}"></div>
+        {% endif %}
+    </div>
+</div>

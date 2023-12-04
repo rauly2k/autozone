@@ -1,0 +1,244 @@
+{% set global_page_title = 'Checkout — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% set cart = data('shop-cart.json') %}
+
+{% from '/macros/controls.twig' import input_check, input_radio %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/blocks/block-header.twig' with {inputs: {
+        title: 'Checkout',
+    }} %}
+
+    <div class="checkout block">
+        <div class="container container--max--xl">
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <div class="alert alert-lg alert-primary">Returning customer? <a href="">Click here to login</a></div>
+                </div>
+
+                <div class="col-12 col-lg-6 col-xl-7">
+                    <div class="card mb-lg-0">
+                        <div class="card-body card-body--padding--2">
+                            <h3 class="card-title">Billing details</h3>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="checkout-first-name">First Name</label>
+                                    <input type="text" class="form-control" id="checkout-first-name" placeholder="First Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="checkout-last-name">Last Name</label>
+                                    <input type="text" class="form-control" id="checkout-last-name" placeholder="Last Name">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="checkout-company-name">Company Name <span class="text-muted">(Optional)</span></label>
+                                <input type="text" class="form-control" id="checkout-company-name" placeholder="Company Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout-country">Country</label>
+                                <select id="checkout-country" class="form-control form-control-select2">
+                                    <option>Select a country...</option>
+                                    <option>United States</option>
+                                    <option>Russia</option>
+                                    <option>Italy</option>
+                                    <option>France</option>
+                                    <option>Ukraine</option>
+                                    <option>Germany</option>
+                                    <option>Australia</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout-street-address">Street Address</label>
+                                <input type="text" class="form-control" id="checkout-street-address" placeholder="Street Address">
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout-address">Apartment, suite, unit etc. <span class="text-muted">(Optional)</span></label>
+                                <input type="text" class="form-control" id="checkout-address">
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout-city">Town / City</label>
+                                <input type="text" class="form-control" id="checkout-city">
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout-state">State / County</label>
+                                <input type="text" class="form-control" id="checkout-state">
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout-postcode">Postcode / ZIP</label>
+                                <input type="text" class="form-control" id="checkout-postcode">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="checkout-email">Email address</label>
+                                    <input type="email" class="form-control" id="checkout-email" placeholder="Email address">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="checkout-phone">Phone</label>
+                                    <input type="text" class="form-control" id="checkout-phone" placeholder="Phone">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-check">
+                                    {{ input_check({
+                                        classes: 'form-check-input',
+                                        id: 'checkout-create-account',
+                                    }) }}
+                                    <label class="form-check-label" for="checkout-create-account">Create an account?</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-divider"></div>
+                        <div class="card-body card-body--padding--2">
+                            <h3 class="card-title">Shipping Details</h3>
+
+                            <div class="form-group">
+                                <div class="form-check">
+                                    {{ input_check({
+                                        classes: 'form-check-input',
+                                        id: 'checkout-different-address',
+                                    }) }}
+                                    <label class="form-check-label" for="checkout-different-address">Ship to a different address?</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="checkout-comment">Order notes <span class="text-muted">(Optional)</span></label>
+                                <textarea id="checkout-comment" class="form-control" rows="4"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6 col-xl-5 mt-4 mt-lg-0">
+                    <div class="card mb-0">
+                        <div class="card-body card-body--padding--2">
+                            <h3 class="card-title">Your Order</h3>
+
+                            <table class="checkout__totals">
+                                <thead class="checkout__totals-header">
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Total</th>
+                                </tr>
+                                </thead>
+                                <tbody class="checkout__totals-products">
+                                {% for product in cart.items %}
+                                    <tr>
+                                        <td>{{ product.name }} × {{ product.quantity }}</td>
+                                        <td>{{ product.total|currency }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tbody class="checkout__totals-subtotals">
+                                {% for total in cart.checkout_totals %}
+                                    {% if not loop.last %}
+                                        <tr>
+                                            <th>{{ total.title }}</th>
+                                            <td>{{ total.value|currency }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                                </tbody>
+                                <tfoot class="checkout__totals-footer">
+                                <tr>
+                                    <th>Total</th>
+                                    <td>{{ (cart.checkout_totals|last).value|currency }}</td>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                            <div class="checkout__payment-methods payment-methods">
+                                <ul class="payment-methods__list">
+                                    <li class="payment-methods__item payment-methods__item--active">
+                                        <label class="payment-methods__item-header">
+                                            {{ input_radio({
+                                                classes: 'payment-methods__item-radio',
+                                                name: 'checkout_payment_method',
+                                                checked: true,
+                                            }) }}
+                                            <span class="payment-methods__item-title">Direct bank transfer</span>
+                                        </label>
+                                        <div class="payment-methods__item-container">
+                                            <div class="payment-methods__item-details text-muted">
+                                                Make your payment directly into our bank account. Please use your Order ID as the payment
+                                                reference. Your order will not be shipped until the funds have cleared in our account.
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="payment-methods__item">
+                                        <label class="payment-methods__item-header">
+                                            {{ input_radio({
+                                                classes: 'payment-methods__item-radio',
+                                                name: 'checkout_payment_method',
+                                                checked: false,
+                                            }) }}
+                                            <span class="payment-methods__item-title">Check payments</span>
+                                        </label>
+                                        <div class="payment-methods__item-container">
+                                            <div class="payment-methods__item-details text-muted">
+                                                Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="payment-methods__item">
+                                        <label class="payment-methods__item-header">
+                                            {{ input_radio({
+                                                classes: 'payment-methods__item-radio',
+                                                name: 'checkout_payment_method',
+                                                checked: false,
+                                            }) }}
+                                            <span class="payment-methods__item-title">Cash on delivery</span>
+                                        </label>
+                                        <div class="payment-methods__item-container">
+                                            <div class="payment-methods__item-details text-muted">
+                                                Pay with cash upon delivery.
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="payment-methods__item">
+                                        <label class="payment-methods__item-header">
+                                            {{ input_radio({
+                                                classes: 'payment-methods__item-radio',
+                                                name: 'checkout_payment_method',
+                                                checked: false,
+                                            }) }}
+                                            <span class="payment-methods__item-title">PayPal</span>
+                                        </label>
+                                        <div class="payment-methods__item-container">
+                                            <div class="payment-methods__item-details text-muted">
+                                                Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="checkout__agree form-group">
+                                <div class="form-check">
+                                    {{ input_check({
+                                        classes: 'form-check-input',
+                                        id: 'checkout-terms',
+                                    }) }}
+                                    <label class="form-check-label" for="checkout-terms">
+                                        I have read and agree to the website <a target="_blank" href="terms.html">terms and conditions</a>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-xl btn-block">Place Order</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'before-footer'}} %}
+{% endblock %}

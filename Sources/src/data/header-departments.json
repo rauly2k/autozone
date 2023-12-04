@@ -1,0 +1,414 @@
+[
+  {
+    "title": "Headlights & Lighting",
+    "submenu": {
+      "type": "megamenu",
+      "size": "xl",
+      "image": "images/departments/departments-2.jpg",
+      "columns": [
+        {
+          "size": "1of5",
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Body Parts",
+                  "links": [
+                    {"title": "Bumpers"},
+                    {"title": "Hoods"},
+                    {"title": "Grilles"},
+                    {"title": "Fog Lights"},
+                    {"title": "Door Handles"},
+                    {"title": "Car Covers"},
+                    {"title": "Tailgates"}
+                  ]
+                },
+                {"title": "Suspension"},
+                {"title": "Steering"},
+                {"title": "Fuel Systems"},
+                {"title": "Transmission"},
+                {"title": "Air Filters"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": "1of5",
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Headlights & Lighting",
+                  "links": [
+                    {"title": "Headlights"},
+                    {"title": "Tail Lights"},
+                    {"title": "Fog Lights"},
+                    {"title": "Turn Signals"},
+                    {"title": "Switches & Relays"},
+                    {"title": "Corner Lights"}
+                  ]
+                },
+                {
+                  "title": "Brakes & Suspension",
+                  "links": [
+                    {"title": "Brake Discs"},
+                    {"title": "Wheel Hubs"},
+                    {"title": "Air Suspension"},
+                    {"title": "Ball Joints"},
+                    {"title": "Brake Pad Sets"}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "size": "1of5",
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Interior Parts",
+                  "links": [
+                    {"title": "Floor Mats"},
+                    {"title": "Gauges"},
+                    {"title": "Consoles & Organizers"},
+                    {"title": "Mobile Electronics"},
+                    {"title": "Steering Wheels"},
+                    {"title": "Cargo Accessories"}
+                  ]
+                },
+                {
+                  "title": "Engine & Drivetrain",
+                  "links": [
+                    {"title": "Air Filters"},
+                    {"title": "Oxygen Sensors"},
+                    {"title": "Heating"},
+                    {"title": "Exhaust"},
+                    {"title": "Cranks & Pistons"}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "size": "1of5",
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Tools & Garage",
+                  "links": [
+                    {"title": "Repair Manuals"},
+                    {"title": "Car Care"},
+                    {"title": "Code Readers"},
+                    {"title": "Tool Boxes"}
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "Interior Parts",
+    "submenu": {
+      "type": "megamenu",
+      "size": "lg",
+      "image": "images/departments/departments-1.jpg",
+      "columns": [
+        {
+          "size": 3,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Body Parts",
+                  "links": [
+                    {"title": "Bumpers"},
+                    {"title": "Hoods"},
+                    {"title": "Grilles"},
+                    {"title": "Fog Lights"},
+                    {"title": "Door Handles"},
+                    {"title": "Car Covers"},
+                    {"title": "Tailgates"}
+                  ]
+                },
+                {"title": "Suspension"},
+                {"title": "Steering"},
+                {"title": "Fuel Systems"},
+                {"title": "Transmission"},
+                {"title": "Air Filters"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 3,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Headlights & Lighting",
+                  "links": [
+                    {"title": "Headlights"},
+                    {"title": "Tail Lights"},
+                    {"title": "Fog Lights"},
+                    {"title": "Turn Signals"},
+                    {"title": "Switches & Relays"},
+                    {"title": "Corner Lights"}
+                  ]
+                },
+                {
+                  "title": "Brakes & Suspension",
+                  "links": [
+                    {"title": "Brake Discs"},
+                    {"title": "Wheel Hubs"},
+                    {"title": "Air Suspension"},
+                    {"title": "Ball Joints"},
+                    {"title": "Brake Pad Sets"}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "size": 3,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Interior Parts",
+                  "links": [
+                    {"title": "Floor Mats"},
+                    {"title": "Gauges"},
+                    {"title": "Consoles & Organizers"},
+                    {"title": "Mobile Electronics"},
+                    {"title": "Steering Wheels"},
+                    {"title": "Cargo Accessories"}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "size": 3,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Tools & Garage",
+                  "links": [
+                    {"title": "Repair Manuals"},
+                    {"title": "Car Care"},
+                    {"title": "Code Readers"},
+                    {"title": "Tool Boxes"}
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "Switches & Relays",
+    "submenu": {
+      "type": "megamenu",
+      "size": "md",
+      "image": "images/departments/departments-3.jpg",
+      "columns": [
+        {
+          "size": 4,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Body Parts",
+                  "links": [
+                    {"title": "Bumpers"},
+                    {"title": "Hoods"},
+                    {"title": "Grilles"},
+                    {"title": "Fog Lights"},
+                    {"title": "Door Handles"},
+                    {"title": "Car Covers"},
+                    {"title": "Tailgates"}
+                  ]
+                },
+                {"title": "Suspension"},
+                {"title": "Steering"},
+                {"title": "Fuel Systems"},
+                {"title": "Transmission"},
+                {"title": "Air Filters"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 4,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Headlights & Lighting",
+                  "links": [
+                    {"title": "Headlights"},
+                    {"title": "Tail Lights"},
+                    {"title": "Fog Lights"},
+                    {"title": "Turn Signals"},
+                    {"title": "Switches & Relays"},
+                    {"title": "Corner Lights"}
+                  ]
+                },
+                {
+                  "title": "Brakes & Suspension",
+                  "links": [
+                    {"title": "Brake Discs"},
+                    {"title": "Wheel Hubs"},
+                    {"title": "Air Suspension"},
+                    {"title": "Ball Joints"},
+                    {"title": "Brake Pad Sets"}
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "size": 4,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Interior Parts",
+                  "links": [
+                    {"title": "Floor Mats"},
+                    {"title": "Gauges"},
+                    {"title": "Consoles & Organizers"},
+                    {"title": "Mobile Electronics"}
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "Tires & Wheels",
+    "submenu": {
+      "type": "megamenu",
+      "size": "nl",
+      "image": "images/departments/departments-4.jpg",
+      "columns": [
+        {
+          "size": 6,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Body Parts",
+                  "links": [
+                    {"title": "Bumpers"},
+                    {"title": "Hoods"},
+                    {"title": "Grilles"},
+                    {"title": "Fog Lights"},
+                    {"title": "Door Handles"},
+                    {"title": "Car Covers"},
+                    {"title": "Tailgates"}
+                  ]
+                },
+                {"title": "Suspension"},
+                {"title": "Steering"},
+                {"title": "Fuel Systems"},
+                {"title": "Transmission"},
+                {"title": "Air Filters"}
+              ]
+            }
+          ]
+        },
+        {
+          "size": 6,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Headlights & Lighting",
+                  "links": [
+                    {"title": "Headlights"},
+                    {"title": "Tail Lights"},
+                    {"title": "Fog Lights"},
+                    {"title": "Turn Signals"}
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "title": "Tools & Garage",
+    "submenu": {
+      "type": "megamenu",
+      "size": "sm",
+      "columns": [
+        {
+          "size": 12,
+          "items": [
+            {
+              "type": "links",
+              "links": [
+                {
+                  "title": "Body Parts",
+                  "links": [
+                    {"title": "Bumpers"},
+                    {"title": "Hoods"},
+                    {"title": "Grilles"},
+                    {"title": "Fog Lights"},
+                    {"title": "Door Handles"},
+                    {"title": "Car Covers"},
+                    {"title": "Tailgates"}
+                  ]
+                },
+                {"title": "Suspension"},
+                {"title": "Steering"},
+                {"title": "Fuel Systems"},
+                {"title": "Transmission"},
+                {"title": "Air Filters"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {"title": "Clutches"},
+  {"title": "Fuel Systems"},
+  {"title": "Steering"},
+  {"title": "Suspension"},
+  {"title": "Body Parts"},
+  {"title": "Transmission"},
+  {"title": "Air Filters"}
+]

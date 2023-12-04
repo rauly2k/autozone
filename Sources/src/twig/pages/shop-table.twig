@@ -1,0 +1,12 @@
+{% set global_page_title = 'Shop Table — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/components/shop-page.twig' with {inputs: {
+        layout: 'table',
+        grid: 'grid-4-sidebar',
+        sidebar: 'left',
+    }} %}
+{% endblock %}

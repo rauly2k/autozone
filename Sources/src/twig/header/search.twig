@@ -1,0 +1,111 @@
+{#
+// inputs:
+#}
+
+{% set products = data('shop-products.json') %}
+{% set vehicles = data('account-vehicles.json') %}
+
+{% from '/macros/controls.twig' import input_radio %}
+
+<div class="search">
+    <form action="" class="search__body">
+        <div class="search__shadow"></div>
+
+        <input class="search__input" type="text" placeholder="Enter Keyword or Part Number">
+        <button class="search__button search__button--start" type="button">
+            <span class="search__button-icon">{{ svg('car-20.svg') }}</span>
+            <span class="search__button-title">Select Vehicle</span>
+        </button>
+        <button class="search__button search__button--end" type="submit">
+            <span class="search__button-icon">{{ svg('search-20.svg') }}</span>
+        </button>
+        <div class="search__box"></div>
+        <div class="search__decor">
+            <div class="search__decor-start"></div>
+            <div class="search__decor-end"></div>
+        </div>
+
+        <div class="search__dropdown search__dropdown--suggestions suggestions">
+            <div class="suggestions__group">
+                <div class="suggestions__group-title">Products</div>
+                <div class="suggestions__group-content">
+                    {% for product in products[1:3] %}
+                        <a class="suggestions__item suggestions__product" href="">
+                            <div class="suggestions__product-image image image--type--product">
+                                <div class="image__body">
+                                    <img class="image__tag" src="{{ image(product.images|first, {size: 40}) }}" alt="">
+                                </div>
+                            </div>
+                            <div class="suggestions__product-info">
+                                <div class="suggestions__product-name">{{ product.name }}</div>
+                                <div class="suggestions__product-rating">
+                                    <div class="suggestions__product-rating-stars">
+                                        {% include '/components/rating.twig' with {inputs: {
+                                            rating: product.rating,
+                                        }} %}
+                                    </div>
+                                    <div class="suggestions__product-rating-label">{{ product.rating }} on {{ product.reviews }} reviews</div>
+                                </div>
+                            </div>
+                            <div class="suggestions__product-price">{{ product.price|currency }}</div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="suggestions__group">
+                <div class="suggestions__group-title">Categories</div>
+                <div class="suggestions__group-content">
+                    <a class="suggestions__item suggestions__category" href="">Headlights & Lighting</a>
+                    <a class="suggestions__item suggestions__category" href="">Fuel System & Filters</a>
+                    <a class="suggestions__item suggestions__category" href="">Body Parts & Mirrors</a>
+                    <a class="suggestions__item suggestions__category" href="">Interior Accessories</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="search__dropdown search__dropdown--vehicle-picker vehicle-picker">
+            <div class="search__dropdown-arrow"></div>
+            <div class="vehicle-picker__panel vehicle-picker__panel--list vehicle-picker__panel--active" data-panel="list">
+                <div class="vehicle-picker__panel-body">
+                    <div class="vehicle-picker__text">
+                        Select a vehicle to find exact fit parts
+                    </div>
+
+                    <div class="vehicles-list">
+                        <div class="vehicles-list__body">
+                            {% for vehicle in vehicles[:2] %}
+                                <label class="vehicles-list__item">
+                                    {{ input_radio({
+                                        classes: 'vehicles-list__item-radio',
+                                        name: 'header-vehicle',
+                                    }) }}
+                                    <span class="vehicles-list__item-info">
+                                        <span class="vehicles-list__item-name">{{ vehicle.name }}</span>
+                                        <span class="vehicles-list__item-details">{{ vehicle.details }}</span>
+                                    </span>
+                                    <button type="button" class="vehicles-list__item-remove">
+                                        {{ svg('recycle-bin-16.svg') }}
+                                    </button>
+                                </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="vehicle-picker__actions">
+                        <button type="button" class="btn btn-primary btn-sm" data-to-panel="form">Add A Vehicle</button>
+                    </div>
+                </div>
+            </div>
+            <div class="vehicle-picker__panel vehicle-picker__panel--form" data-panel="form">
+                <div class="vehicle-picker__panel-body">
+                    {% include '/components/vehicle-form.twig' with {inputs: {layout: 'search'}} %}
+                    <div class="vehicle-picker__actions">
+                        <div class="search__car-selector-link">
+                            <a href="" data-to-panel="list">Back to vehicles list</a>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-sm" disabled>Add A Vehicle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

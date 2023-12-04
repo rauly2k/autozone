@@ -1,0 +1,11 @@
+{% set global_page_title = 'Post Left Sidebar — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/components/post-page.twig' with {inputs: {
+        image: true,
+        sidebar: 'left',
+    }} %}
+{% endblock %}

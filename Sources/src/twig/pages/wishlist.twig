@@ -1,0 +1,76 @@
+{% set global_page_title = 'Wishlist — Red Parts' %}
+{% set global_page_description = '' %}
+
+{% set products = data('shop-products.json')[:5] %}
+
+{% extends '/layouts/default.twig' %}
+
+{% block site_body %}
+    {% include '/blocks/block-header.twig' with {inputs: {
+        title: 'Wishlist',
+    }} %}
+
+    <div class="block">
+        <div class="container container--max--xl">
+            <div class="wishlist">
+                <table class="wishlist__table">
+                    <thead class="wishlist__head">
+                    <tr class="wishlist__row wishlist__row--head">
+                        <th class="wishlist__column wishlist__column--head wishlist__column--image">Image</th>
+                        <th class="wishlist__column wishlist__column--head wishlist__column--product">Product</th>
+                        <th class="wishlist__column wishlist__column--head wishlist__column--stock">Stock status</th>
+                        <th class="wishlist__column wishlist__column--head wishlist__column--price">Price</th>
+                        <th class="wishlist__column wishlist__column--head wishlist__column--button"></th>
+                        <th class="wishlist__column wishlist__column--head wishlist__column--remove"></th>
+                    </tr>
+                    </thead>
+                    <tbody class="wishlist__body">
+                    {% for product in products[:3] %}
+                        <tr class="wishlist__row wishlist__row--body">
+                            <td class="wishlist__column wishlist__column--body wishlist__column--image">
+                                <div class="image image--type--product">
+                                    <a href="product-full.html" class="image__body">
+                                        <img class="image__tag" src="{{ image(product.images[0], {size: 160}) }}" alt="">
+                                    </a>
+                                </div>
+                            </td>
+                            <td class="wishlist__column wishlist__column--body wishlist__column--product">
+                                <div class="wishlist__product-name">
+                                    <a href="">{{ product.name }}</a>
+                                </div>
+                                <div class="wishlist__product-rating">
+                                    <div class="wishlist__product-rating-stars">
+                                        {% include '/components/rating.twig' with {inputs: {
+                                            rating: product.rating,
+                                        }} %}
+                                    </div>
+                                    <div class="wishlist__product-rating-title">{{ product.reviews }} reviews</div>
+                                </div>
+                            </td>
+                            <td class="wishlist__column wishlist__column--body wishlist__column--stock">
+                                {% include '/components/status-badge.twig' with {inputs: {
+                                    style: 'success',
+                                    text: 'In Stock',
+                                }} %}
+                            </td>
+                            <td class="wishlist__column wishlist__column--body wishlist__column--price">
+                                {{ product.price|currency }}
+                            </td>
+                            <td class="wishlist__column wishlist__column--body wishlist__column--button">
+                                <button type="button" class="btn btn-sm btn-primary">Add to cart</button>
+                            </td>
+                            <td class="wishlist__column wishlist__column--body wishlist__column--remove">
+                                <button type="button" class="wishlist__remove btn btn-sm btn-muted btn-icon">
+                                    {{ svg('cross-12.svg') }}
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% include '/blocks/block-space.twig' with {inputs: {layout: 'before-footer'}} %}
+{% endblock %}
